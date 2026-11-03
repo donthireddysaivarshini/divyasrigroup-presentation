@@ -168,10 +168,6 @@ em{font-style:italic;color:var(--acc)}
 .kpi .l{font-size:11px;color:var(--text-2);margin-top:6px}
 .insight{font-size:12px;color:var(--text-2);padding:12px 16px;background:var(--acc-bg);border-radius:4px;line-height:1.6}
 .insight b{color:var(--acc);font-weight:600}
-.thumbs{display:flex;gap:8px;margin-top:14px}
-.thumbs img{height:46px;width:74px;object-fit:cover;object-position:top left;border:1px solid var(--border);border-radius:3px;cursor:zoom-in;transition:.3s;background:#fff}
-.thumbs img.c{object-fit:contain}
-.thumbs img:hover{border-color:var(--acc-3);transform:translateY(-2px)}
 
 /* ===== 08 lead loop ===== */
 .flow{display:grid;grid-template-columns:repeat(6,1fr);margin-top:56px;position:relative}
@@ -196,10 +192,6 @@ em{font-style:italic;color:var(--acc)}
 .sign{margin-top:48px;display:flex;justify-content:center}
 .sign img{height:64px}
 
-/* lightbox */
-.lb{position:fixed;inset:0;background:rgba(255,255,255,.96);display:none;place-items:center;z-index:200;padding:5vmin;cursor:zoom-out}
-.lb.on{display:grid}
-.lb img{max-width:94vw;max-height:88vh;border:1px solid var(--border);box-shadow:0 40px 80px -30px rgba(0,0,0,.3)}
 
 /* ===== responsive (scroll mode) ===== */
 @media (max-width:1100px){
@@ -394,18 +386,12 @@ em{font-style:italic;color:var(--acc)}
       <div class="case r" style="--d:2">
         <div class="ct"><h3>Kura Homes — <em>Hi-Five</em></h3><span>Instagram · Meta Ads</span></div>
         <div class="kpis">
-          <div class="kpi"><div class="n" data-count="310062">310,062</div><div class="l">Views in 90 days</div></div>
           <div class="kpi"><div class="n">98.6%</div><div class="l">Reach beyond followers</div></div>
+          <div class="kpi"><div class="n">72.5%</div><div class="l">Views from Reels</div></div>
           <div class="kpi"><div class="n">81%</div><div class="l">Genuine leads</div></div>
           <div class="kpi"><div class="n">46%</div><div class="l">Qualified leads</div></div>
         </div>
         <p class="insight"><b>Trust-led creatives qualified ~6× better</b> than offer-led ones.</p>
-        <div class="thumbs">
-          <img src="assets/cases/kura-ig-views.png" alt="Kura Homes Instagram views dashboard" loading="lazy">
-          <img src="assets/cases/kura-ig-interactions.png" alt="Kura Homes Instagram interactions dashboard" loading="lazy">
-          <img class="c" src="assets/cases/kura-overall.png" alt="Kura Homes lead quality chart" loading="lazy">
-          <img class="c" src="assets/cases/kura-by-campaign.png" alt="Kura Homes lead quality by campaign" loading="lazy">
-        </div>
       </div>
       <div class="case r" style="--d:3">
         <div class="ct"><h3>Sunshine <em>Green Meadows</em></h3><span>Meta Ads</span></div>
@@ -453,7 +439,6 @@ em{font-style:italic;color:var(--acc)}
 
 </main>
 
-<div class="lb" id="lb"><img alt=""></div>
 
 <script>
 (function () {
@@ -463,7 +448,6 @@ em{font-style:italic;color:var(--acc)}
   const cur = document.getElementById("cur"), bar = document.getElementById("bar");
   const prevBtn = document.getElementById("prev"), nextBtn = document.getElementById("next");
   const hint = document.getElementById("hint"), dotsEl = document.getElementById("dots");
-  const lb = document.getElementById("lb");
   const deckMQ = matchMedia("(min-width: 861px) and (min-height: 560px)");
   const DURATION = 900;
   let current = 0, locked = false, deck = false;
@@ -561,7 +545,6 @@ em{font-style:italic;color:var(--acc)}
   document.querySelectorAll("[data-go]").forEach(a => a.addEventListener("click", e => { e.preventDefault(); go(+a.dataset.go); }));
 
   document.addEventListener("keydown", e => {
-    if (lb.classList.contains("on")) { if (e.key === "Escape") lb.classList.remove("on"); return; }
     if (["ArrowRight", "ArrowDown", "PageDown", " "].includes(e.key)) { e.preventDefault(); next(); }
     else if (["ArrowLeft", "ArrowUp", "PageUp"].includes(e.key)) { e.preventDefault(); prev(); }
     else if (e.key === "Home") { e.preventDefault(); go(0); }
@@ -618,15 +601,6 @@ em{font-style:italic;color:var(--acc)}
   setMode();
   if (!deck && start > 0) go(start, true);
   setTimeout(() => hint.classList.add("hide"), 6000);
-
-  // lightbox for dashboard screenshots
-  document.querySelectorAll(".thumbs img").forEach(img => img.addEventListener("click", () => {
-    const big = lb.querySelector("img");
-    big.src = img.src;
-    big.alt = img.alt;
-    lb.classList.add("on");
-  }));
-  lb.addEventListener("click", () => lb.classList.remove("on"));
 })();
 </script>
 </body>
