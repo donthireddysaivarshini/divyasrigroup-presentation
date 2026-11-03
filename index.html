@@ -3,294 +3,327 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Divyasri Group · Built on Trust, Ready for Digital</title>
-<meta name="description" content="An introductory conversation with Divyasri Group on building a complete digital ecosystem for Neo City.">
+<title>Divyasri Group — A Digital Conversation</title>
+<meta name="description" content="An introductory conversation with Divyasri Group on building a complete digital ecosystem for its upcoming 400-acre villa plot community at Sadashivpet.">
 <link rel="icon" href="assets/client/logo.webp">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
 <style>
 :root{
-  --ink:#130c13; --ink-2:#1d131d; --ink-3:#2a1c29;
-  --ivory:#f7f1ea; --sand:#efe4d8; --line:rgba(247,241,234,.14); --line-dk:rgba(19,12,19,.12);
-  --coral:#e5655a; --rose:#a0446a; --plum:#6e2a6e; --gold:#d9a55a;
-  --grad:linear-gradient(135deg,var(--coral),var(--rose) 55%,var(--plum));
-  --muted:rgba(247,241,234,.64); --muted-dk:rgba(19,12,19,.62);
-  --serif:"Cormorant Garamond",Georgia,serif; --sans:"Manrope",system-ui,-apple-system,Segoe UI,sans-serif;
-  --pad:clamp(20px,5vw,88px);
+  --bg:#fff; --text:#1a1a1a; --text-2:#6b6b6b; --text-3:#9a9a9a;
+  --acc:#1b4332; --acc-2:#2d6a4f; --acc-3:#40916c; --acc-bg:#f0f7f4; --acc-glow:rgba(27,67,50,.07);
+  --border:#e8e8e8; --border-2:#f0f0f0; --surface:#fafafa;
+  --display:"Playfair Display",Georgia,serif; --body:"Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  --nav:72px; --ease:cubic-bezier(.4,0,.2,1); --out:cubic-bezier(.16,1,.3,1);
 }
-*{box-sizing:border-box;margin:0;padding:0}
-html{scroll-snap-type:y proximity;scroll-behavior:smooth;background:var(--ink)}
-body{font-family:var(--sans);color:var(--ivory);background:var(--ink);-webkit-font-smoothing:antialiased;line-height:1.55;overflow-x:hidden}
-img{max-width:100%;display:block}
-a{color:inherit}
-svg.i{width:22px;height:22px;stroke:currentColor;fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;flex:none}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html,body{background:var(--bg)}
+body{font-family:var(--body);color:var(--text);font-size:14px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{display:block;max-width:100%}
+button{font:inherit;color:inherit}
+svg.i{width:18px;height:18px;stroke:currentColor;fill:none;stroke-width:1.4;stroke-linecap:round;stroke-linejoin:round;flex:none}
 
-/* ---------- chrome ---------- */
-.progress{position:fixed;top:0;left:0;height:2px;width:0;background:var(--grad);z-index:60;transition:width .15s linear}
-.topbar{position:fixed;inset:0 0 auto 0;display:flex;align-items:center;justify-content:space-between;padding:18px var(--pad);z-index:50;pointer-events:none;mix-blend-mode:normal}
-.topbar>*{pointer-events:auto}
-.brandmark{display:flex;align-items:center;gap:12px;text-decoration:none;font-size:12px;letter-spacing:.22em;text-transform:uppercase;font-weight:600}
-.brandmark img{height:30px;width:auto}
-.counter{font-size:12px;letter-spacing:.2em;font-weight:600;font-variant-numeric:tabular-nums;padding:8px 14px;border-radius:99px;background:rgba(19,12,19,.55);backdrop-filter:blur(10px);border:1px solid var(--line)}
-.counter b{color:var(--gold);font-weight:700}
-.dots{position:fixed;right:22px;top:50%;transform:translateY(-50%);display:flex;flex-direction:column;gap:10px;z-index:50}
-.dots a{position:relative;display:block;width:8px;height:8px;border-radius:50%;background:rgba(247,241,234,.28);transition:.3s}
-.dots a.on{background:var(--gold);transform:scale(1.5)}
-.dots a span{position:absolute;right:20px;top:50%;transform:translateY(-50%);white-space:nowrap;font-size:11px;letter-spacing:.14em;text-transform:uppercase;padding:5px 10px;border-radius:6px;background:var(--ink-2);border:1px solid var(--line);opacity:0;pointer-events:none;transition:.25s}
-.dots a:hover span{opacity:1}
-body.light-ui .dots a{background:rgba(19,12,19,.22)} body.light-ui .dots a.on{background:var(--rose)}
-.hint{position:fixed;left:var(--pad);bottom:18px;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);z-index:50;transition:opacity .4s}
-body.light-ui .hint{color:var(--muted-dk)}
-kbd{font-family:var(--sans);border:1px solid currentColor;border-radius:4px;padding:1px 6px;font-size:10px;margin:0 2px;opacity:.8}
+/* ===== chrome ===== */
+.nav{position:fixed;inset:0 0 auto;height:var(--nav);display:flex;align-items:center;justify-content:space-between;padding:0 48px;background:rgba(255,255,255,.92);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid var(--border-2);z-index:100}
+.brand{display:flex;align-items:center;gap:14px;text-decoration:none;color:var(--text)}
+.brand img{height:46px;width:auto}
+.brand .x{font-size:11px;color:var(--text-3);letter-spacing:.24em;text-transform:uppercase}
+.brand .x b{color:var(--text);font-weight:600}
+.nav-r{display:flex;align-items:center;gap:22px}
+.counter{font-size:12px;letter-spacing:2px;color:var(--text-3);font-variant-numeric:tabular-nums}
+.counter b{font-size:15px;color:var(--acc);font-weight:600}
+.arrows{display:flex;gap:8px}
+.arrow{width:40px;height:40px;border-radius:50%;border:1px solid var(--border);background:transparent;cursor:pointer;display:grid;place-items:center;transition:all .3s var(--ease)}
+.arrow:hover{background:var(--acc);border-color:var(--acc);color:#fff;transform:scale(1.05)}
+.arrow:active{transform:scale(.95)}
+.arrow:disabled{opacity:.3;pointer-events:none}
+.progress{position:fixed;top:var(--nav);left:0;right:0;height:2px;background:var(--border-2);z-index:99}
+.progress i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--acc),var(--acc-3));transition:width .7s var(--ease)}
+.dots{position:fixed;right:28px;top:50%;transform:translateY(-50%);display:flex;flex-direction:column;gap:12px;z-index:90}
+.dots button{width:7px;height:7px;border-radius:50%;border:1px solid var(--text-3);background:transparent;cursor:pointer;position:relative;transition:all .4s var(--ease);padding:0}
+.dots button.on{background:var(--acc);border-color:var(--acc);height:22px;border-radius:4px}
+.dots button span{position:absolute;right:18px;top:50%;transform:translate(6px,-50%);white-space:nowrap;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--text-2);background:#fff;border:1px solid var(--border);padding:4px 10px;border-radius:99px;opacity:0;pointer-events:none;transition:.3s var(--ease)}
+.dots button:hover span{opacity:1;transform:translate(0,-50%)}
+.hint{position:fixed;bottom:22px;left:50%;transform:translateX(-50%);font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--text-3);z-index:90;transition:opacity .6s}
+.hint.hide{opacity:0}
+kbd{font-family:var(--body);font-size:10px;border:1px solid var(--border);border-radius:4px;padding:1px 6px;margin:0 2px;color:var(--text-2)}
 
-/* ---------- slides ---------- */
-.slide{position:relative;min-height:100vh;min-height:100svh;scroll-snap-align:start;display:flex;flex-direction:column;justify-content:center;padding:110px var(--pad) 90px;overflow:hidden}
-.slide.ivory{background:var(--ivory);color:var(--ink)}
-.slide.sand{background:var(--sand);color:var(--ink)}
-.slide.deep{background:radial-gradient(120% 90% at 80% 10%,#2b1527 0%,var(--ink) 60%)}
-.wrap{width:100%;max-width:1240px;margin:0 auto;position:relative;z-index:2}
-.eyebrow{display:inline-flex;align-items:center;gap:12px;font-size:12px;letter-spacing:.28em;text-transform:uppercase;font-weight:600;color:var(--gold);margin-bottom:22px}
-.eyebrow::before{content:"";width:34px;height:1px;background:currentColor}
-.ivory .eyebrow,.sand .eyebrow{color:var(--rose)}
-h1,h2,h3{font-family:var(--serif);font-weight:500;letter-spacing:-.01em;line-height:1.04}
-h1{font-size:clamp(46px,7.4vw,112px)}
-h2{font-size:clamp(36px,5vw,72px);max-width:18ch}
-h3{font-size:clamp(22px,2vw,30px)}
-em{font-style:italic;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;padding-right:.06em}
-.lede{font-size:clamp(16px,1.35vw,19px);max-width:58ch;color:var(--muted);margin-top:22px;font-weight:300}
-.ivory .lede,.sand .lede{color:var(--muted-dk)}
-.small{font-size:12.5px;color:var(--muted)} .ivory .small,.sand .small{color:var(--muted-dk)}
-.grid{display:grid;gap:clamp(14px,1.6vw,22px)}
+/* ===== slides (scroll mode default; deck mode on larger screens) ===== */
+.slide{position:relative;padding:calc(var(--nav) + 56px) 24px 64px}
+.content{width:100%;max-width:1240px;margin:0 auto}
+.fit{width:100%;transform-origin:center center}
 
-/* tags for data provenance */
-.tag{display:inline-flex;align-items:center;gap:6px;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;font-weight:600;padding:4px 10px;border-radius:99px;border:1px solid currentColor;opacity:.85;white-space:nowrap}
-.tag.verified{color:#7fc79a} .ivory .tag.verified,.sand .tag.verified{color:#2f7d4b}
-.tag.shared{color:var(--gold)} .ivory .tag.shared,.sand .tag.shared{color:#9a6a22}
-.tag.confirm{color:var(--coral)}
-.ph{display:inline-flex;align-items:center;gap:6px;border:1px dashed currentColor;border-radius:8px;padding:3px 10px;font-size:12px;letter-spacing:.06em;color:var(--coral);font-weight:600;white-space:nowrap}
+body.deck{overflow:hidden;height:100vh}
+body.deck .slides{position:relative;width:100%;height:100vh;overflow:hidden}
+body.deck .slide{position:absolute;inset:0;padding:var(--nav) 0 0;display:flex;opacity:0;visibility:hidden;transition:opacity .8s var(--ease),visibility .8s}
+body.deck .slide.active{opacity:1;visibility:visible}
+body.deck .content{height:calc(100vh - var(--nav));padding:36px 96px 44px 64px;display:flex;align-items:center}
 
-/* reveal */
-.rv{opacity:0;transform:translateY(28px);transition:opacity .9s cubic-bezier(.2,.7,.2,1),transform .9s cubic-bezier(.2,.7,.2,1);transition-delay:calc(var(--i,0)*90ms)}
-.slide.in .rv{opacity:1;transform:none}
-@media (prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none}html{scroll-behavior:auto}}
+/* reveal choreography */
+.r{opacity:0;transform:translateY(22px);transition:opacity .9s var(--out),transform .9s var(--out);transition-delay:calc(var(--d,0) * 85ms + 200ms)}
+body.back .r{transform:translateY(-22px)}
+.slide.active .r{opacity:1;transform:none}
+body.deck .slide:not(.active) .r{transition-duration:.35s;transition-delay:0s}
+.media{position:relative;overflow:hidden;border-radius:4px;background:var(--acc-bg);clip-path:inset(0 0 0 100%);transition:clip-path 1.3s var(--out);transition-delay:calc(var(--d,0) * 85ms + 250ms)}
+.media img{width:100%;height:100%;object-fit:cover;transform:scale(1.14);transition:transform 2.2s var(--out);transition-delay:inherit}
+.slide.active .media{clip-path:inset(0 0 0 0)}
+.slide.active .media img{transform:scale(1)}
+body.deck .slide:not(.active) .media{transition-duration:.4s;transition-delay:0s}
+.media .cap{position:absolute;left:14px;bottom:12px;font-size:9.5px;letter-spacing:.16em;text-transform:uppercase;color:#fff;background:rgba(0,0,0,.32);backdrop-filter:blur(6px);padding:4px 9px;border-radius:99px}
+@media (prefers-reduced-motion:reduce){.r,.media,.media img{transition:none!important;opacity:1;transform:none;clip-path:none}}
 
-/* ---------- 01 cover ---------- */
-#cover{background:var(--ink)}
-#cover .contours{position:absolute;inset:-10%;z-index:0;opacity:.5}
-#cover .contours path{fill:none;stroke:url(#cg);stroke-width:1;stroke-dasharray:6 10;animation:drift 40s linear infinite}
-@keyframes drift{to{stroke-dashoffset:-400}}
-#cover .glow{position:absolute;width:70vmax;height:70vmax;right:-25vmax;top:-30vmax;border-radius:50%;background:radial-gradient(circle,rgba(229,101,90,.28),rgba(110,42,110,.18) 40%,transparent 70%);filter:blur(10px);z-index:1}
-.cover-logo{height:clamp(70px,9vw,110px);width:auto;margin-bottom:38px}
-.cover-meta{display:flex;flex-wrap:wrap;gap:28px;margin-top:48px;padding-top:26px;border-top:1px solid var(--line);font-size:13px;color:var(--muted)}
-.cover-meta b{display:block;color:var(--ivory);font-weight:600;font-size:14px;margin-top:3px}
+/* ===== type ===== */
+.tag{display:inline-flex;align-items:center;gap:8px;font-size:10px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--acc);background:var(--acc-bg);padding:7px 14px;border-radius:99px}
+.kicker{font-size:10.5px;font-weight:500;letter-spacing:.26em;text-transform:uppercase;color:var(--text-3);display:flex;align-items:center;gap:12px}
+.kicker::before{content:"";width:28px;height:1px;background:var(--acc-3)}
+h1,h2,h3{font-family:var(--display);font-weight:500;line-height:1.12;letter-spacing:-.005em;color:var(--text)}
+h1{font-size:clamp(38px,4.3vw,60px)}
+h2{font-size:clamp(30px,3.2vw,46px);max-width:20ch}
+h3{font-size:19px}
+em{font-style:italic;color:var(--acc)}
+.lede{font-size:15px;font-weight:300;color:var(--text-2);max-width:52ch;line-height:1.75}
+.muted{color:var(--text-2)} .faint{color:var(--text-3)}
+.note{font-size:11px;color:var(--text-3);line-height:1.6}
+.ph{display:inline-flex;align-items:center;gap:6px;font-size:10.5px;font-weight:500;letter-spacing:.06em;color:#9a6b1f;border:1px dashed #d9b77c;background:#fffaf0;padding:3px 10px;border-radius:99px;white-space:nowrap}
+.src{display:inline-flex;align-items:center;gap:6px;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--text-3)}
+.src::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--acc-3)}
+.src.shared::before{background:#d9a55a}
+.stack>*+*{margin-top:22px}
+.split{display:grid;grid-template-columns:1fr 1fr;gap:clamp(40px,5vw,88px);align-items:center;width:100%}
+.split.wide-l{grid-template-columns:1.1fr .9fr}
+.split.wide-r{grid-template-columns:.85fr 1.15fr}
 
-/* ---------- legacy stats ---------- */
-.stats{grid-template-columns:repeat(4,1fr);margin-top:56px;border-top:1px solid var(--line-dk)}
-.stat{padding:30px 22px 6px 0;border-right:1px solid var(--line-dk)}
-.stat:last-child{border-right:0}
-.stat .n{font-family:var(--serif);font-size:clamp(54px,6.4vw,104px);line-height:1;font-weight:500;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
-.stat .l{margin-top:10px;font-size:14px;letter-spacing:.04em;font-weight:500}
-.footnote{margin-top:40px;display:flex;gap:14px;align-items:flex-start;padding:18px 20px;border-radius:14px;background:rgba(19,12,19,.04);border:1px solid var(--line-dk);max-width:880px;font-size:13.5px;color:var(--muted-dk)}
+/* ===== 01 cover ===== */
+.hero-meta{display:flex;gap:44px;padding-top:26px;border-top:1px solid var(--border)}
+.hero-meta .n{font-family:var(--display);font-size:30px;color:var(--acc);line-height:1}
+.hero-meta .l{font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--text-3);margin-top:8px}
+.hero-img{aspect-ratio:4/5;max-height:calc(100vh - var(--nav) - 120px);width:100%;border-radius:4px;box-shadow:0 40px 80px -40px rgba(27,67,50,.35)}
+.prepared{display:flex;gap:28px;font-size:11.5px;color:var(--text-3)}
+.prepared b{display:block;font-weight:500;color:var(--text);margin-top:2px}
 
-/* ---------- portfolio ---------- */
-.projects{grid-template-columns:repeat(5,1fr);margin-top:48px}
-.proj{background:#fff;border-radius:18px;overflow:hidden;border:1px solid var(--line-dk);display:flex;flex-direction:column;transition:transform .5s,box-shadow .5s}
-.proj:hover{transform:translateY(-6px);box-shadow:0 24px 50px -24px rgba(110,42,110,.45)}
-.proj .lg{aspect-ratio:1/1;display:grid;place-items:center;padding:22px;background:linear-gradient(180deg,#fff,#faf6f1)}
+/* ===== legacy ===== */
+.legacy-img{aspect-ratio:4/5;max-height:calc(100vh - var(--nav) - 110px)}
+.stats{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid var(--border);border-left:1px solid var(--border)}
+.stat{padding:22px 24px;border-right:1px solid var(--border);border-bottom:1px solid var(--border);transition:background .4s}
+.stat:hover{background:var(--acc-bg)}
+.stat .n{font-family:var(--display);font-size:clamp(34px,3.2vw,46px);line-height:1;color:var(--acc)}
+.stat .l{font-size:12px;color:var(--text-2);margin-top:8px}
+.quote{font-family:var(--display);font-style:italic;font-size:17px;color:var(--text);border-left:2px solid var(--acc-3);padding-left:18px;max-width:46ch;line-height:1.55}
+
+/* ===== portfolio ===== */
+.projects{display:grid;grid-template-columns:repeat(5,1fr);gap:16px;margin-top:44px}
+.proj{border:1px solid var(--border);border-radius:4px;background:#fff;transition:all .5s var(--out)}
+.proj:hover{transform:translateY(-6px);box-shadow:0 30px 50px -30px rgba(27,67,50,.3);border-color:transparent}
+.proj .lg{aspect-ratio:1;display:grid;place-items:center;padding:26px;background:var(--surface)}
 .proj .lg img{max-height:100%;object-fit:contain}
-.proj .meta{padding:16px 18px 18px;border-top:1px solid var(--line-dk)}
-.proj .meta b{font-family:var(--serif);font-size:22px;font-weight:600;display:block;line-height:1.1}
-.proj .meta span{font-size:12.5px;color:var(--muted-dk);display:block;margin-top:6px}
-.proj .acre{font-size:11px;letter-spacing:.16em;text-transform:uppercase;font-weight:700;color:var(--rose);margin-top:10px;display:block}
-.completed{display:flex;flex-wrap:wrap;gap:12px;align-items:center;margin-top:28px;font-size:13.5px}
-.chip{padding:8px 16px;border-radius:99px;border:1px solid var(--line-dk);background:#fff;font-weight:500}
+.proj .m{padding:14px 16px 16px}
+.proj b{font-family:var(--display);font-size:16px;font-weight:500;display:block}
+.proj span{display:block;font-size:11px;color:var(--text-2);margin-top:3px}
+.proj .ac{font-size:9.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--acc-3);font-weight:600;margin-top:10px}
+.row{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.chip{font-size:11.5px;padding:6px 14px;border-radius:99px;border:1px solid var(--border);color:var(--text-2)}
 
-/* ---------- neo city ---------- */
-.neo{display:grid;grid-template-columns:1.05fr 1fr;gap:clamp(28px,4vw,70px);align-items:center}
-.neo-visual{position:relative;aspect-ratio:4/5;border-radius:24px;overflow:hidden;background:linear-gradient(160deg,#2a1627,#130c13);border:1px solid var(--line)}
-.neo-visual svg{position:absolute;inset:0;width:100%;height:100%}
-.neo-visual .phase1{fill:url(#ng);opacity:.85}
-.neo-visual .label{position:absolute;left:22px;bottom:20px;right:22px;display:flex;justify-content:space-between;align-items:flex-end;gap:12px;font-size:12px;color:var(--muted)}
-.big-acre{display:flex;gap:clamp(20px,3vw,48px);margin:36px 0 28px}
-.big-acre div .n{font-family:var(--serif);font-size:clamp(64px,8vw,128px);line-height:.9}
-.big-acre div .n sup{font-size:.32em;vertical-align:top;margin-left:6px;color:var(--gold);font-family:var(--sans);letter-spacing:.1em}
-.big-acre div .l{font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-top:10px}
-.todo{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-top:20px}
-.todo div{display:flex;gap:10px;align-items:center;font-size:13.5px;padding:12px 14px;border-radius:12px;border:1px dashed rgba(229,101,90,.45);color:var(--muted)}
-.todo svg{color:var(--coral);width:18px;height:18px}
+/* ===== project ===== */
+.big{display:flex;align-items:flex-end;gap:16px}
+.big .n{font-family:var(--display);font-size:clamp(76px,8vw,120px);line-height:.85;color:var(--acc)}
+.big .l{font-size:10.5px;letter-spacing:.24em;text-transform:uppercase;color:var(--text-2);padding-bottom:10px;line-height:1.7}
+.points{display:flex;flex-direction:column;border-top:1px solid var(--border)}
+.pt{display:flex;gap:16px;align-items:flex-start;padding:15px 0;border-bottom:1px solid var(--border);font-size:13px;color:var(--text-2)}
+.pt .ic{width:34px;height:34px;border-radius:50%;background:var(--acc-bg);color:var(--acc);display:grid;place-items:center;flex:none}
+.pt b{display:block;color:var(--text);font-weight:500;font-size:13.5px}
+.proj-img{aspect-ratio:4/5;max-height:calc(100vh - var(--nav) - 110px);width:100%}
 
-/* ---------- digital today ---------- */
-.today{grid-template-columns:repeat(4,1fr);margin-top:52px}
-.card{border:1px solid var(--line);border-radius:20px;padding:26px 24px;background:linear-gradient(180deg,rgba(255,255,255,.04),rgba(255,255,255,.01))}
-.ivory .card,.sand .card{border-color:var(--line-dk);background:#fff}
-.card .ic{width:46px;height:46px;border-radius:12px;display:grid;place-items:center;background:rgba(229,101,90,.12);color:var(--coral);margin-bottom:18px}
-.card h4{font-size:16px;font-weight:600;margin-bottom:8px}
-.card p{font-size:14px;color:var(--muted)}
-.ivory .card p,.sand .card p{color:var(--muted-dk)}
-.card .foot{margin-top:16px}
-.quote{font-family:var(--serif);font-size:clamp(26px,3vw,42px);line-height:1.15;margin-top:54px;max-width:30ch;font-style:italic;color:var(--ivory)}
+/* ===== amenities ===== */
+.amen{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:minmax(150px,22vh);gap:12px;margin-top:36px}
+.am{position:relative;border-radius:4px;overflow:hidden}
+.am .media{position:absolute;inset:0;border-radius:0}
+.am::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 40%,rgba(10,30,20,.72));pointer-events:none;z-index:1}
+.am .t{position:absolute;left:16px;right:16px;bottom:14px;color:#fff;z-index:2}
+.am .t b{font-family:var(--display);font-size:17px;font-weight:500;display:block;line-height:1.2}
+.am .t span{font-size:10px;letter-spacing:.18em;text-transform:uppercase;opacity:.85}
+.am.solid{background:var(--acc);color:#fff;padding:20px;display:flex;flex-direction:column;justify-content:space-between}
+.am.solid::after{display:none}
+.am.solid .n{font-family:var(--display);font-size:44px;line-height:1}
+.am.solid p{font-size:12px;opacity:.85}
+.am:hover .media img{transform:scale(1.06)}
 
-/* ---------- journey ---------- */
-.journey{display:grid;grid-template-columns:repeat(6,1fr);margin-top:60px;position:relative}
-.journey::before{content:"";position:absolute;left:4%;right:4%;top:31px;height:1px;background:linear-gradient(90deg,var(--coral),var(--plum))}
-.step{text-align:center;padding:0 8px;position:relative}
-.step .dot{width:62px;height:62px;border-radius:50%;margin:0 auto 18px;display:grid;place-items:center;background:var(--ivory);border:1px solid var(--line-dk);color:var(--rose);position:relative;z-index:1}
-.step b{font-size:14.5px;display:block;font-weight:600}
-.step span{font-size:12.5px;color:var(--muted-dk);display:block;margin-top:6px}
-.step.last .dot{background:var(--grad);color:#fff;border:0}
+/* ===== cards ===== */
+.cards{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:40px}
+.card{padding:26px 22px;border:1px solid var(--border);border-radius:4px;background:#fff;transition:all .4s var(--out)}
+.card:hover{border-color:var(--acc-3);box-shadow:0 20px 40px -28px rgba(27,67,50,.35)}
+.card .ic{width:40px;height:40px;border-radius:50%;background:var(--acc-bg);color:var(--acc);display:grid;place-items:center;margin-bottom:18px}
+.card h4{font-size:13.5px;font-weight:600;margin-bottom:6px}
+.card p{font-size:12.5px;color:var(--text-2);line-height:1.65}
+.card .src{margin-top:16px}
 
-/* ---------- ecosystem ---------- */
-.eco{display:grid;grid-template-columns:1fr 1.1fr;gap:clamp(30px,4vw,70px);align-items:center}
-.orbit{position:relative;aspect-ratio:1/1;container-type:inline-size;width:100%;max-width:560px;margin:auto}
-.orbit .ring{position:absolute;inset:9%;border-radius:50%;border:1px dashed rgba(217,165,90,.35);animation:spin 80s linear infinite}
-.orbit .ring.r2{inset:26%;border-style:solid;border-color:var(--line);animation-direction:reverse}
+/* ===== journey ===== */
+.journey{display:grid;grid-template-columns:repeat(6,1fr);margin-top:56px;position:relative}
+.journey::before{content:"";position:absolute;top:27px;left:8%;right:8%;height:1px;background:linear-gradient(90deg,var(--border),var(--acc-3),var(--border))}
+.jstep{text-align:center;padding:0 10px;position:relative}
+.jstep .c{width:54px;height:54px;border-radius:50%;margin:0 auto 18px;border:1px solid var(--border);background:#fff;display:grid;place-items:center;color:var(--acc);transition:.4s var(--out)}
+.jstep:hover .c{background:var(--acc);color:#fff;border-color:var(--acc);transform:translateY(-4px)}
+.jstep.last .c{background:var(--acc);color:#fff;border-color:var(--acc)}
+.jstep b{font-size:13px;font-weight:600;display:block}
+.jstep span{font-size:11.5px;color:var(--text-2);display:block;margin-top:4px}
+.journey-band{margin-top:56px;display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px}
+.journey-band div{padding:18px 20px;background:var(--surface);border-radius:4px;font-size:12.5px;color:var(--text-2)}
+.journey-band b{display:block;font-family:var(--display);font-size:26px;font-weight:500;color:var(--acc);line-height:1.1;margin-bottom:4px}
+
+/* ===== ecosystem ===== */
+.orbit{position:relative;aspect-ratio:1;width:100%;max-width:min(500px,calc(100vh - var(--nav) - 110px));margin:auto}
+.orbit .ring{position:absolute;inset:8%;border-radius:50%;border:1px dashed rgba(64,145,108,.35);animation:spin 90s linear infinite}
+.orbit .ring.r2{inset:25%;border:1px solid var(--border-2);animation-direction:reverse}
 @keyframes spin{to{transform:rotate(360deg)}}
-.orbit .hub{position:absolute;inset:34%;border-radius:50%;background:var(--grad);display:grid;place-items:center;text-align:center;padding:10px;box-shadow:0 0 80px rgba(229,101,90,.35)}
-.orbit .hub b{font-family:var(--serif);font-size:clamp(18px,2vw,26px);line-height:1.05;font-weight:600}
-.orbit .hub span{display:block;font-size:10px;letter-spacing:.2em;text-transform:uppercase;margin-top:6px;opacity:.85}
-.node{position:absolute;left:50%;top:50%;width:92px;margin:-46px 0 0 -46px;text-align:center;font-size:11.5px;font-weight:600;letter-spacing:.02em}
-.node .c{width:54px;height:54px;border-radius:50%;margin:0 auto 6px;display:grid;place-items:center;background:var(--ink-2);border:1px solid rgba(217,165,90,.4);color:var(--gold);transition:.3s}
-.node:hover .c{background:var(--gold);color:var(--ink)}
-.resp{display:flex;flex-wrap:wrap;gap:8px;margin-top:30px}
-.resp span{font-size:13px;padding:8px 14px;border-radius:99px;border:1px solid var(--line);color:var(--muted)}
-.resp span::before{content:"✓";color:var(--gold);margin-right:8px;font-weight:700}
+.orbit .hub{position:absolute;inset:33%;border-radius:50%;background:radial-gradient(circle at 30% 30%,var(--acc-2),var(--acc));display:grid;place-items:center;text-align:center;color:#fff;box-shadow:0 0 0 14px var(--acc-glow),0 0 0 30px rgba(27,67,50,.035)}
+.orbit .hub b{font-family:var(--display);font-weight:500;font-size:clamp(16px,1.6vw,21px);line-height:1.15;display:block}
+.orbit .hub span{font-size:9px;letter-spacing:.24em;text-transform:uppercase;opacity:.75}
+.node{position:absolute;transform:translate(-50%,-50%) scale(.6);opacity:0;text-align:center;width:88px;font-size:10.5px;font-weight:500;color:var(--text-2);transition:all .7s var(--out);transition-delay:calc(var(--d) * 70ms + 450ms)}
+.slide.active .node{opacity:1;transform:translate(-50%,-50%) scale(1)}
+.node .c{width:46px;height:46px;border-radius:50%;margin:0 auto 6px;background:#fff;border:1px solid var(--border);color:var(--acc);display:grid;place-items:center;transition:.3s}
+.node:hover .c{background:var(--acc);color:#fff;border-color:var(--acc)}
+.resp{display:flex;flex-wrap:wrap;gap:7px}
+.resp span{font-size:11.5px;padding:6px 12px;border-radius:99px;background:var(--acc-bg);color:var(--acc-2)}
 
-/* ---------- services ---------- */
-.services{grid-template-columns:repeat(3,1fr);margin-top:44px}
-.svc{background:#fff;border:1px solid var(--line-dk);border-radius:20px;padding:24px 24px 22px;position:relative;transition:.4s}
-.svc:hover{border-color:rgba(160,68,106,.45);transform:translateY(-4px)}
-.svc .top{display:flex;align-items:center;gap:14px;margin-bottom:14px}
-.svc .top .ic{width:42px;height:42px;border-radius:12px;display:grid;place-items:center;background:var(--grad);color:#fff}
-.svc .top b{font-size:16px;font-weight:600;line-height:1.2}
-.svc .top small{display:block;font-size:10.5px;letter-spacing:.18em;color:var(--rose);font-weight:700}
-.svc ul{list-style:none;display:flex;flex-wrap:wrap;gap:6px}
-.svc li{font-size:12.5px;padding:5px 10px;border-radius:8px;background:var(--sand);color:#3b2a38}
-.svc .note{margin-top:12px;font-size:12px;color:var(--muted-dk);font-style:italic}
+/* ===== services ===== */
+.svcs{display:grid;grid-template-columns:repeat(3,1fr);gap:0;margin-top:34px;border-top:1px solid var(--border);border-left:1px solid var(--border)}
+.svc{padding:20px 22px;border-right:1px solid var(--border);border-bottom:1px solid var(--border);transition:background .4s}
+.svc:hover{background:var(--acc-bg)}
+.svc .h{display:flex;align-items:center;gap:12px;margin-bottom:8px}
+.svc .h .ic{color:var(--acc)}
+.svc .h b{font-size:13px;font-weight:600}
+.svc .h small{margin-left:auto;font-size:10px;color:var(--text-3);letter-spacing:.1em}
+.svc p{font-size:11.5px;color:var(--text-2);line-height:1.7}
+.svc .fee{display:block;margin-top:6px;font-size:10.5px;color:#9a6b1f;font-style:italic}
 
-/* ---------- production ---------- */
-.prod{display:grid;grid-template-columns:1.1fr 1fr;gap:clamp(30px,4vw,70px);align-items:center}
-.kit{grid-template-columns:repeat(2,1fr)}
-.kit div{display:flex;gap:14px;align-items:center;padding:18px;border-radius:16px;border:1px solid var(--line);background:rgba(255,255,255,.03);font-size:14.5px;font-weight:500}
-.kit .ic{color:var(--gold)}
-.promise{margin-top:30px;padding:22px 24px;border-radius:18px;background:var(--grad);font-size:15.5px;font-weight:500;line-height:1.5}
+/* ===== production ===== */
+.collage{display:grid;grid-template-columns:1.2fr 1fr;grid-template-rows:1fr 1fr;gap:12px;height:min(560px,calc(100vh - var(--nav) - 110px))}
+.collage .media:first-child{grid-row:1/3}
+.kit{display:grid;grid-template-columns:1fr 1fr;gap:0;border-top:1px solid var(--border)}
+.kit div{display:flex;align-items:center;gap:12px;padding:12px 0;border-bottom:1px solid var(--border);font-size:12.5px;color:var(--text-2)}
+.kit .i{color:var(--acc)}
+.promise{padding:18px 22px;background:var(--acc);color:#fff;border-radius:4px;font-size:13px;line-height:1.65}
+.promise b{font-weight:600}
 
-/* ---------- case studies ---------- */
-.case-head{display:flex;justify-content:space-between;align-items:flex-end;gap:30px;flex-wrap:wrap}
-.case-grid{display:grid;grid-template-columns:1.25fr 1fr;gap:clamp(20px,2.4vw,36px);margin-top:40px}
-.kpis{grid-template-columns:repeat(3,1fr)}
-.kpi{padding:20px;border-radius:18px;background:#fff;border:1px solid var(--line-dk)}
-.kpi .n{font-family:var(--serif);font-size:clamp(34px,3.4vw,52px);line-height:1;font-weight:600;color:var(--ink)}
-.kpi .n.g{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
-.kpi .l{font-size:12.5px;color:var(--muted-dk);margin-top:8px;line-height:1.4}
-.kpi.ph-k .n{font-size:20px;color:var(--coral);font-family:var(--sans);font-weight:600}
-.kpi.ph-k{border-style:dashed;border-color:rgba(229,101,90,.5);background:transparent}
-.sub-h{font-size:11.5px;letter-spacing:.22em;text-transform:uppercase;font-weight:700;color:var(--rose);margin:26px 0 12px;display:flex;align-items:center;gap:10px}
-.sub-h:first-child{margin-top:0}
-.bars{display:flex;flex-direction:column;gap:12px}
-.bar{display:grid;grid-template-columns:150px 1fr 56px;align-items:center;gap:12px;font-size:13px}
-.bar .t{height:10px;border-radius:99px;background:rgba(19,12,19,.08);overflow:hidden}
-.bar .t i{display:block;height:100%;width:0;border-radius:99px;background:var(--grad);transition:width 1.4s cubic-bezier(.2,.7,.2,1) .3s}
-.bar .t i.low{background:#c9b8b0}
-.bar b{text-align:right;font-variant-numeric:tabular-nums}
-.shots{grid-template-columns:repeat(2,1fr);gap:12px}
-.shot{border-radius:14px;overflow:hidden;border:1px solid var(--line-dk);background:#fff;cursor:zoom-in;position:relative}
-.shot img{width:100%;height:150px;object-fit:cover;object-position:top left;transition:transform .6s}
+/* ===== case studies ===== */
+.case-top{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap}
+.did{display:flex;flex-wrap:wrap;gap:6px;max-width:520px;justify-content:flex-end}
+.did span{font-size:10.5px;padding:5px 11px;border-radius:99px;border:1px solid var(--border);color:var(--text-2)}
+.case{display:grid;grid-template-columns:1.15fr 1fr;gap:clamp(28px,3.5vw,56px);margin-top:30px}
+.lbl{font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--text-3);font-weight:600;margin-bottom:12px;display:flex;justify-content:space-between;align-items:center}
+.kpis{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--border);border-left:1px solid var(--border)}
+.kpi{padding:16px 16px 14px;border-right:1px solid var(--border);border-bottom:1px solid var(--border)}
+.kpi .n{font-family:var(--display);font-size:clamp(24px,2.2vw,32px);line-height:1;color:var(--text)}
+.kpi .n.g{color:var(--acc)}
+.kpi .l{font-size:10.5px;color:var(--text-2);margin-top:6px;line-height:1.45}
+.kpi.p .n{font-family:var(--body);font-size:12px;color:#9a6b1f;font-weight:500}
+.kpi.p{background:#fffcf6}
+.bars{display:flex;flex-direction:column;gap:11px}
+.bar{display:grid;grid-template-columns:150px 1fr 44px;align-items:center;gap:12px;font-size:11.5px;color:var(--text-2)}
+.bar .t{height:6px;border-radius:99px;background:var(--border-2);overflow:hidden}
+.bar .t i{display:block;height:100%;width:0;border-radius:99px;background:linear-gradient(90deg,var(--acc),var(--acc-3));transition:width 1.4s var(--out) .6s}
+.bar .t i.lo{background:#c9c9c9}
+.bar b{text-align:right;font-weight:600;color:var(--text);font-variant-numeric:tabular-nums}
+.insight{font-size:12px;color:var(--text-2);padding:12px 16px;background:var(--acc-bg);border-radius:4px;line-height:1.65}
+.insight b{color:var(--acc);font-weight:600}
+.shots{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.shot{border:1px solid var(--border);border-radius:4px;overflow:hidden;cursor:zoom-in;background:#fff}
+.shot img{width:100%;height:92px;object-fit:cover;object-position:top left;transition:transform .6s var(--out)}
+.shot.c img{object-fit:contain;background:#fff}
 .shot:hover img{transform:scale(1.04)}
-.shot figcaption{font-size:11.5px;padding:8px 12px;color:var(--muted-dk);border-top:1px solid var(--line-dk)}
-.did{display:flex;flex-wrap:wrap;gap:6px}
-.did span{font-size:12px;padding:6px 11px;border-radius:99px;border:1px solid var(--line-dk);background:#fff}
-.insight{margin-top:16px;padding:16px 18px;border-left:3px solid var(--rose);background:rgba(160,68,106,.06);border-radius:0 12px 12px 0;font-size:13.5px;color:#3b2a38}
+.shot figcaption{font-size:10px;color:var(--text-3);padding:6px 10px;border-top:1px solid var(--border-2);letter-spacing:.04em}
 
-/* ---------- lead loop ---------- */
-.loop{display:grid;grid-template-columns:1.1fr 1fr;gap:clamp(30px,4vw,64px);align-items:start;margin-top:40px}
-.flow{display:flex;flex-direction:column;gap:0;position:relative}
-.fs{display:grid;grid-template-columns:54px 1fr;gap:18px;padding-bottom:18px;position:relative}
-.fs::before{content:"";position:absolute;left:26px;top:54px;bottom:0;width:1px;background:linear-gradient(var(--gold),transparent)}
+/* ===== lead loop ===== */
+.loop{display:grid;grid-template-columns:1fr 1fr;gap:clamp(30px,4vw,64px);margin-top:32px;align-items:start}
+.flow{position:relative}
+.fs{display:grid;grid-template-columns:40px 1fr;gap:16px;padding-bottom:13px;position:relative}
+.fs::before{content:"";position:absolute;left:19.5px;top:40px;bottom:0;width:1px;background:var(--border)}
 .fs:last-child::before{display:none}
-.fs .num{width:54px;height:54px;border-radius:50%;display:grid;place-items:center;border:1px solid rgba(217,165,90,.5);color:var(--gold);background:var(--ink-2)}
-.fs b{display:block;font-size:16px;font-weight:600;margin-top:4px}
-.fs p{font-size:13.5px;color:var(--muted);margin-top:3px}
-.fs .badge{display:inline-block;margin-left:10px;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;padding:3px 9px;border-radius:99px;background:var(--grad);color:#fff;font-weight:700;vertical-align:middle}
-.fs.hl .num{background:var(--grad);border:0;color:#fff}
-.report{background:var(--ivory);color:var(--ink);border-radius:22px;padding:26px;box-shadow:0 40px 80px -40px rgba(0,0,0,.6)}
-.report .rh{display:flex;justify-content:space-between;align-items:center;padding-bottom:16px;border-bottom:1px solid var(--line-dk)}
-.report .rh b{font-family:var(--serif);font-size:24px;font-weight:600}
-.report table{width:100%;border-collapse:collapse;margin-top:8px;font-size:13.5px}
-.report td{padding:10px 0;border-bottom:1px solid var(--line-dk)}
-.report td:last-child{text-align:right;color:var(--muted-dk);font-variant-numeric:tabular-nums}
-.feedback{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-top:16px}
-.feedback span{font-size:11.5px;text-align:center;padding:8px 6px;border-radius:10px;background:var(--sand)}
-.mantra{margin-top:46px;display:grid;grid-template-columns:1fr 1fr;gap:16px}
-.mantra div{padding:22px 24px;border-radius:18px;border:1px solid var(--line)}
-.mantra .k{font-family:var(--serif);font-size:clamp(28px,3vw,40px);line-height:1;color:var(--gold)}
-.mantra p{font-size:14px;color:var(--muted);margin-top:8px}
+.fs .c{width:40px;height:40px;border-radius:50%;border:1px solid var(--border);display:grid;place-items:center;color:var(--acc);background:#fff}
+.fs.hl .c{background:var(--acc);color:#fff;border-color:var(--acc)}
+.fs b{font-size:13px;font-weight:600;display:flex;align-items:center;gap:8px;margin-top:2px}
+.fs p{font-size:11.5px;color:var(--text-2)}
+.badge{font-size:9px;letter-spacing:.16em;text-transform:uppercase;font-weight:600;color:var(--acc);background:var(--acc-bg);padding:3px 8px;border-radius:99px}
+.report{border:1px solid var(--border);border-radius:4px;padding:22px 24px;background:#fff;box-shadow:0 30px 60px -40px rgba(27,67,50,.35)}
+.report .rh{display:flex;justify-content:space-between;align-items:center;padding-bottom:12px;border-bottom:1px solid var(--border)}
+.report .rh b{font-family:var(--display);font-size:20px;font-weight:500}
+.report table{width:100%;border-collapse:collapse;font-size:12px}
+.report td{padding:8px 0;border-bottom:1px solid var(--border-2);color:var(--text-2)}
+.report td:last-child{text-align:right;color:var(--text-3)}
+.mantra{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:14px}
+.mantra>div{padding:16px 18px;border-radius:4px;background:var(--acc);color:#fff}
+.mantra .k{font-family:var(--display);font-size:22px;line-height:1.1}
+.mantra p{font-size:11.5px;opacity:.85;margin-top:4px}
 
-/* ---------- roadmap ---------- */
-.road{grid-template-columns:repeat(4,1fr);margin-top:50px;counter-reset:ph}
-.ph-card{padding:26px 22px;border-radius:20px;background:#fff;border:1px solid var(--line-dk);position:relative;overflow:hidden}
-.ph-card::before{counter-increment:ph;content:"0" counter(ph);font-family:var(--serif);font-size:64px;line-height:1;position:absolute;right:16px;top:8px;color:rgba(160,68,106,.12);font-weight:600}
-.ph-card .st{font-size:11px;letter-spacing:.2em;text-transform:uppercase;font-weight:700;color:var(--rose)}
-.ph-card h3{margin:8px 0 14px;font-size:26px}
-.ph-card ul{list-style:none;font-size:13.5px;color:var(--muted-dk);display:flex;flex-direction:column;gap:8px}
-.ph-card li{display:flex;gap:8px}
-.ph-card li::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--grad);margin-top:8px;flex:none}
+/* ===== roadmap ===== */
+.road{display:grid;grid-template-columns:repeat(4,1fr);margin-top:44px;position:relative}
+.road::before{content:"";position:absolute;left:0;right:0;top:6px;height:1px;background:var(--border)}
+.phase{padding-right:28px;position:relative}
+.phase .dot{width:13px;height:13px;border-radius:50%;background:#fff;border:1px solid var(--acc-3);margin-bottom:22px;position:relative}
+.phase .dot::after{content:"";position:absolute;inset:3px;border-radius:50%;background:var(--acc-3)}
+.phase .st{font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--acc-3);font-weight:600}
+.phase h3{margin:6px 0 14px}
+.phase ul{list-style:none;display:flex;flex-direction:column;gap:7px}
+.phase li{font-size:12px;color:var(--text-2);padding-left:14px;position:relative}
+.phase li::before{content:"";position:absolute;left:0;top:9px;width:5px;height:1px;background:var(--acc-3)}
 
-/* ---------- close ---------- */
-#close{background:radial-gradient(90% 80% at 50% 110%,rgba(229,101,90,.32),transparent 60%),var(--ink);text-align:center}
-#close h2{margin:0 auto;max-width:20ch}
-.next{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:54px auto 0;max-width:980px;text-align:left}
-.next div{padding:22px;border-radius:18px;border:1px solid var(--line);background:rgba(255,255,255,.03)}
-.next .k{font-size:11px;letter-spacing:.22em;color:var(--gold);font-weight:700}
-.next b{display:block;font-size:16px;margin:8px 0 4px;font-weight:600}
-.next p{font-size:13.5px;color:var(--muted)}
-.sign{margin-top:56px;display:flex;justify-content:center;align-items:center;gap:20px;flex-wrap:wrap;font-size:13px;color:var(--muted)}
-.sign img{height:42px}
+/* ===== close ===== */
+.close-wrap{text-align:center;width:100%}
+.close-wrap h2{margin:18px auto 0;max-width:22ch}
+.next{display:grid;grid-template-columns:repeat(3,1fr);gap:0;max-width:880px;margin:44px auto 0;text-align:left;border-top:1px solid var(--border);border-left:1px solid var(--border)}
+.next>div{padding:20px 22px;border-right:1px solid var(--border);border-bottom:1px solid var(--border)}
+.next .k{font-size:10px;letter-spacing:.22em;color:var(--acc-3);font-weight:600}
+.next b{display:block;font-size:13.5px;font-weight:600;margin:6px 0 4px}
+.next p{font-size:12px;color:var(--text-2)}
+.sign{margin-top:40px;display:flex;justify-content:center;align-items:center;gap:18px;flex-wrap:wrap;font-size:12px;color:var(--text-3)}
+.sign img{height:40px}
+.sign .ag{font-family:var(--display);font-size:20px;color:var(--text)}
 
 /* lightbox */
-.lb{position:fixed;inset:0;background:rgba(10,6,10,.92);display:none;place-items:center;z-index:100;padding:4vmin;cursor:zoom-out}
+.lb{position:fixed;inset:0;background:rgba(255,255,255,.96);display:none;place-items:center;z-index:200;padding:5vmin;cursor:zoom-out}
 .lb.on{display:grid}
-.lb img{max-height:92vh;max-width:96vw;border-radius:10px;box-shadow:0 30px 80px rgba(0,0,0,.6)}
+.lb img{max-width:94vw;max-height:88vh;border:1px solid var(--border);box-shadow:0 40px 80px -30px rgba(0,0,0,.3)}
 
-/* ---------- responsive ---------- */
+/* ===== responsive (scroll mode) ===== */
 @media (max-width:1100px){
   .projects{grid-template-columns:repeat(3,1fr)}
-  .today{grid-template-columns:repeat(2,1fr)}
-  .services{grid-template-columns:repeat(2,1fr)}
-  .road{grid-template-columns:repeat(2,1fr)}
-  .case-grid,.loop,.eco,.prod,.neo{grid-template-columns:1fr}
-  .neo-visual{aspect-ratio:16/10}
+  .cards{grid-template-columns:repeat(2,1fr)}
+  .svcs{grid-template-columns:repeat(2,1fr)}
+  .amen{grid-template-columns:repeat(2,1fr);grid-auto-rows:190px}
+  .road{grid-template-columns:repeat(2,1fr);row-gap:30px}
+  .road::before{display:none}
 }
-@media (max-width:760px){
-  html{scroll-snap-type:none}
-  .slide{padding:96px 20px 70px;min-height:auto}
-  #cover{min-height:100svh}
-  .dots,.hint{display:none}
-  .stats{grid-template-columns:repeat(2,1fr)}
-  .stat:nth-child(2){border-right:0}
-  .stat{border-bottom:1px solid var(--line-dk)}
-  .projects,.services,.road,.next,.kpis,.mantra,.kit,.todo{grid-template-columns:1fr}
+@media (max-width:860px){
+  .nav{padding:0 18px}
+  .brand .x,.hint,.dots{display:none}
+  .slide{padding:calc(var(--nav) + 40px) 20px 48px}
+  .slide+.slide{border-top:1px solid var(--border-2)}
+  .split,.split.wide-l,.split.wide-r,.case,.loop{grid-template-columns:1fr}
+  .hero-img,.legacy-img,.proj-img{aspect-ratio:4/3;max-height:none}
   .projects{grid-template-columns:repeat(2,1fr)}
-  .today{grid-template-columns:1fr}
-  .journey{grid-template-columns:repeat(2,1fr);row-gap:30px}
+  .cards,.svcs,.next,.mantra,.kit{grid-template-columns:1fr}
+  .journey{grid-template-columns:repeat(3,1fr);row-gap:28px}
   .journey::before{display:none}
-  .bar{grid-template-columns:110px 1fr 48px}
-  .big-acre{flex-wrap:wrap}
-  .brandmark span{display:none}
-  .node{width:70px;margin:-35px 0 0 -35px;font-size:10px}
-  .node .c{width:40px;height:40px}
-  .node .c svg{width:18px;height:18px}
+  .journey-band{grid-template-columns:1fr}
+  .kpis{grid-template-columns:repeat(2,1fr)}
+  .bar{grid-template-columns:110px 1fr 40px}
+  .collage{height:420px}
+  .did{justify-content:flex-start}
+  .road{grid-template-columns:1fr}
+  .node{width:64px;font-size:9px}
+  .node .c{width:34px;height:34px}
+  .node .c svg{width:15px;height:15px}
+}
+@media (max-width:520px){
+  .amen{grid-template-columns:1fr}
+  .hero-meta{gap:26px}
+  .prepared{flex-direction:column;gap:10px}
 }
 </style>
 </head>
 <body>
 
-<!-- icon sprite -->
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
-  <defs>
-    <linearGradient id="cg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#e5655a"/><stop offset="1" stop-color="#6e2a6e"/></linearGradient>
-    <linearGradient id="ng" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#e5655a"/><stop offset=".6" stop-color="#a0446a"/><stop offset="1" stop-color="#6e2a6e"/></linearGradient>
-  </defs>
   <symbol id="i-web" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M3 8h18M8 21h8M12 18v3"/></symbol>
   <symbol id="i-social" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".6"/></symbol>
   <symbol id="i-pen" viewBox="0 0 24 24"><path d="M4 20h4L19 9l-4-4L4 16v4z"/><path d="M13.5 6.5l4 4"/></symbol>
@@ -308,385 +341,389 @@ em{font-style:italic;background:var(--grad);-webkit-background-clip:text;backgro
   <symbol id="i-drone" viewBox="0 0 24 24"><circle cx="5" cy="5" r="2.5"/><circle cx="19" cy="5" r="2.5"/><circle cx="5" cy="19" r="2.5"/><circle cx="19" cy="19" r="2.5"/><rect x="9" y="9" width="6" height="6" rx="1.5"/><path d="M7 7l2 2M17 7l-2 2M7 17l2-2M17 17l-2-2"/></symbol>
   <symbol id="i-film" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M7 4v16M17 4v16M3 9h4M3 15h4M17 9h4M17 15h4"/></symbol>
   <symbol id="i-cut" viewBox="0 0 24 24"><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M8.5 7.5L20 18M8.5 16.5L20 6"/></symbol>
-  <symbol id="i-check" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M8 12l3 3 5-6"/></symbol>
-  <symbol id="i-q" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M9.5 9.5a2.5 2.5 0 1 1 3.5 2.3c-.6.3-1 .9-1 1.6v.6M12 17h.01"/></symbol>
   <symbol id="i-users" viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20c0-3.6 2.9-6.5 6.5-6.5s6.5 2.9 6.5 6.5"/><path d="M16 4.5a3.5 3.5 0 0 1 0 7M18 13.7c2 .9 3.5 3.1 3.5 6.3"/></symbol>
   <symbol id="i-home" viewBox="0 0 24 24"><path d="M3 11l9-7 9 7"/><path d="M5 10v10h14V10"/><path d="M10 20v-6h4v6"/></symbol>
-  <symbol id="i-moon" viewBox="0 0 24 24"><path d="M20 14.5A8 8 0 1 1 9.5 4a6.5 6.5 0 0 0 10.5 10.5z"/></symbol>
-  <symbol id="i-hash" viewBox="0 0 24 24"><path d="M4 9h16M4 15h16M10 3L8 21M16 3l-2 18"/></symbol>
+  <symbol id="i-road" viewBox="0 0 24 24"><path d="M8 3L4 21M16 3l4 18M12 4v3M12 10v3M12 16v3"/></symbol>
+  <symbol id="i-build" viewBox="0 0 24 24"><path d="M3 21h18M5 21V8l7-4 7 4v13"/><path d="M9 21v-5h6v5M9 11h.01M15 11h.01"/></symbol>
+  <symbol id="i-cap" viewBox="0 0 24 24"><path d="M2 9l10-5 10 5-10 5z"/><path d="M6 11v5c3 2 9 2 12 0v-5M22 9v6"/></symbol>
+  <symbol id="i-left" viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></symbol>
+  <symbol id="i-right" viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></symbol>
 </svg>
 
-<div class="progress" id="progress"></div>
-<header class="topbar">
-  <a href="#cover" class="brandmark"><img src="assets/client/logo-light.webp" alt="Divyasri Group"><span>Digital Conversation</span></a>
-  <div class="counter" id="counter"><b>01</b> / 14</div>
+<header class="nav">
+  <a class="brand" href="#cover" data-go="0"><img src="assets/client/logo.webp" alt="Divyasri Group"><span class="x">× <b class="agency">[Agency Name]</b></span></a>
+  <div class="nav-r">
+    <div class="counter"><b id="cur">01</b> / <span id="tot">15</span></div>
+    <div class="arrows">
+      <button class="arrow" id="prev" aria-label="Previous slide"><svg class="i"><use href="#i-left"/></svg></button>
+      <button class="arrow" id="next" aria-label="Next slide"><svg class="i"><use href="#i-right"/></svg></button>
+    </div>
+  </div>
 </header>
-<nav class="dots" id="dots" aria-label="Sections"></nav>
-<div class="hint" id="hint">Use <kbd>←</kbd><kbd>→</kbd> or scroll to navigate</div>
+<div class="progress"><i id="bar"></i></div>
+<nav class="dots" id="dots" aria-label="Slides"></nav>
+<div class="hint" id="hint">Use <kbd>←</kbd> <kbd>→</kbd> or scroll to navigate</div>
 
-<main>
+<main class="slides" id="slides">
 
 <!-- 01 COVER -->
 <section class="slide" id="cover" data-title="Welcome">
-  <svg class="contours" viewBox="0 0 1200 800" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
-    <path d="M-50 620 C 200 520, 380 700, 620 580 S 1000 420, 1250 520"/>
-    <path d="M-50 560 C 220 450, 400 640, 640 520 S 1010 360, 1250 460"/>
-    <path d="M-50 500 C 240 380, 420 580, 660 460 S 1020 300, 1250 400"/>
-    <path d="M-50 440 C 260 310, 440 520, 680 400 S 1030 240, 1250 340"/>
-    <path d="M-50 380 C 280 240, 460 460, 700 340 S 1040 180, 1250 280"/>
-    <path d="M-50 320 C 300 170, 480 400, 720 280 S 1050 120, 1250 220"/>
-    <path d="M-50 260 C 320 100, 500 340, 740 220 S 1060 60, 1250 160"/>
-  </svg>
-  <div class="glow"></div>
-  <div class="wrap">
-    <img class="cover-logo rv" src="assets/client/logo-light.webp" alt="Divyasri Group — Built on Trust">
-    <div class="eyebrow rv" style="--i:1">An introductory conversation</div>
-    <h1 class="rv" style="--i:2">A legacy built on land.<br><em>Ready to be seen online.</em></h1>
-    <p class="lede rv" style="--i:3">Divyasri Group has earned trust on the ground, project after project. This is a short conversation about carrying that trust into the places today's buyers look first — and about how we can support Neo City from its very first phase.</p>
-    <div class="cover-meta rv" style="--i:4">
-      <div>Prepared for<b>Divyasri Group, Hyderabad</b></div>
-      <div>Focus<b>Neo City · Complete digital ecosystem</b></div>
-      <div>Presented by<b class="agency">[Agency Name]</b></div>
+  <div class="content"><div class="fit split wide-l">
+    <div class="stack">
+      <div class="r"><span class="tag">An introductory conversation</span></div>
+      <h1 class="r" style="--d:1">A Legacy Built on Land.<br><em>Now, Built Online.</em></h1>
+      <p class="lede r" style="--d:2">A conversation with Divyasri Group on carrying decades of trust into the places today's buyers look first — beginning with the upcoming 400-acre community at Sadashivpet.</p>
+      <div class="hero-meta r" style="--d:3">
+        <div><div class="n">90</div><div class="l">Years of legacy</div></div>
+        <div><div class="n">400</div><div class="l">Acres · next chapter</div></div>
+        <div><div class="n">One</div><div class="l">Digital partner</div></div>
+      </div>
+      <div class="prepared r" style="--d:4">
+        <div>Prepared for<b>Divyasri Group, Hyderabad</b></div>
+        <div>Presented by<b class="agency">[Agency Name]</b></div>
+      </div>
     </div>
-  </div>
+    <div class="media hero-img" style="--d:1"><img src="assets/img/villa-hero.jpg" alt="Luxury villa with pool at dusk"><span class="cap">Representative imagery</span></div>
+  </div></div>
 </section>
 
 <!-- 02 LEGACY -->
-<section class="slide ivory" id="legacy" data-title="The Legacy">
-  <div class="wrap">
-    <div class="eyebrow rv">01 · Who Divyasri Group is</div>
-    <h2 class="rv" style="--i:1">Decades of land, <em>thousands of families,</em> one promise: built on trust.</h2>
-    <p class="lede rv" style="--i:2">Through Divyasri Realtors, Divyasri Infra and Divyasri Nirman, the group has shaped plotted communities along Hyderabad's growth corridors — Srisailam Highway, Mumbai Highway and Warangal Highway.</p>
-    <div class="grid stats">
-      <div class="stat rv" style="--i:3"><div class="n" data-count="90">90</div><div class="l">Years of real-estate experience</div></div>
-      <div class="stat rv" style="--i:4"><div class="n" data-count="600" data-suffix="+">600+</div><div class="l">Acres developed</div></div>
-      <div class="stat rv" style="--i:5"><div class="n" data-count="21" data-suffix="+">21+</div><div class="l">Projects delivered</div></div>
-      <div class="stat rv" style="--i:6"><div class="n" data-count="7000" data-suffix="+">7,000+</div><div class="l">Happy customers</div></div>
+<section class="slide" id="legacy" data-title="The Legacy">
+  <div class="content"><div class="fit split wide-r">
+    <div class="media legacy-img"><img src="assets/img/land-sunrise.jpg" alt="Open land at sunrise" loading="lazy"><span class="cap">Representative imagery</span></div>
+    <div class="stack">
+      <div class="kicker r">01 · The Foundation</div>
+      <h2 class="r" style="--d:1">Built on Trust. <em>Ready for the Next Chapter.</em></h2>
+      <p class="lede r" style="--d:2">Through Divyasri Realtors, Divyasri Infra and Divyasri Nirman, the group has shaped plotted communities along Hyderabad's growth corridors.</p>
+      <div class="stats r" style="--d:3">
+        <div class="stat"><div class="n" data-count="90">90</div><div class="l">Years of real-estate experience</div></div>
+        <div class="stat"><div class="n" data-count="600" data-suffix="+">600+</div><div class="l">Acres developed</div></div>
+        <div class="stat"><div class="n" data-count="21" data-suffix="+">21+</div><div class="l">Projects</div></div>
+        <div class="stat"><div class="n" data-count="7000" data-suffix="+">7,000+</div><div class="l">Happy customers</div></div>
+      </div>
+      <p class="note r" style="--d:4"><span class="src shared">As shared by the group</span> &nbsp;The public website currently lists 18+ years and 6,200+ customers — one verified set of numbers across every channel is an early quick win.</p>
     </div>
-    <div class="footnote rv" style="--i:7">
-      <span class="tag shared">As shared by the group</span>
-      <span>The public website currently shows <b>18+ years</b> and a customer base of <b>6,200+</b>. One of our first tasks would be aligning a single, verified set of numbers across every channel.</span>
-    </div>
-  </div>
+  </div></div>
 </section>
 
 <!-- 03 PORTFOLIO -->
-<section class="slide sand" id="portfolio" data-title="Portfolio">
-  <div class="wrap">
-    <div class="eyebrow rv">02 · What has been built</div>
-    <h2 class="rv" style="--i:1">A portfolio of <em>premium villa-plot</em> communities.</h2>
-    <div class="grid projects">
-      <article class="proj rv" style="--i:2"><div class="lg"><img src="assets/client/mercury-logo.webp" alt="Mercury Township logo" loading="lazy"></div><div class="meta"><b>Mercury Township</b><span>Fourth City, Srisailam Highway</span><span class="acre">80 Acres · Ongoing</span></div></article>
-      <article class="proj rv" style="--i:3"><div class="lg"><img src="assets/client/sundarban-logo.webp" alt="Sundarban logo" loading="lazy"></div><div class="meta"><b>Sundarban</b><span>Sadasivpet, Mumbai Highway</span><span class="acre">99 Acres</span></div></article>
-      <article class="proj rv" style="--i:4"><div class="lg"><img src="assets/client/prakriti-logo.webp" alt="Prakriti Sikhara logo" loading="lazy"></div><div class="meta"><b>Prakriti Sikhara</b><span>Bhongir, Warangal Highway</span><span class="acre">92 Acres · Ongoing</span></div></article>
-      <article class="proj rv" style="--i:5"><div class="lg"><img src="assets/client/yadarishi-logo.webp" alt="Yadarishi logo" loading="lazy"></div><div class="meta"><b>Yadarishi</b><span>Yadagirigutta, Warangal Highway</span><span class="acre">90 Acres</span></div></article>
-      <article class="proj rv" style="--i:6"><div class="lg"><img src="assets/client/shivanandi.webp" alt="Shivanandi" loading="lazy" style="object-fit:cover;width:100%;height:100%"></div><div class="meta"><b>Shivanandi</b><span>Nandiwanaparthy</span><span class="acre">23.73 Acres · Ongoing</span></div></article>
+<section class="slide" id="portfolio" data-title="Portfolio">
+  <div class="content"><div class="fit">
+    <div class="kicker r">02 · The Portfolio</div>
+    <h2 class="r" style="--d:1;margin-top:18px">Communities across <em>Hyderabad's growth corridors.</em></h2>
+    <div class="projects">
+      <article class="proj r" style="--d:2"><div class="lg"><img src="assets/client/mercury-logo.webp" alt="Mercury Township" loading="lazy"></div><div class="m"><b>Mercury Township</b><span>Fourth City, Srisailam Highway</span><div class="ac">80 Acres · Ongoing</div></div></article>
+      <article class="proj r" style="--d:3"><div class="lg"><img src="assets/client/sundarban-logo.webp" alt="Sundarban" loading="lazy"></div><div class="m"><b>Sundarban</b><span>Sadasivpet, Mumbai Highway</span><div class="ac">99 Acres</div></div></article>
+      <article class="proj r" style="--d:4"><div class="lg"><img src="assets/client/prakriti-logo.webp" alt="Prakriti Sikhara" loading="lazy"></div><div class="m"><b>Prakriti Sikhara</b><span>Bhongir, Warangal Highway</span><div class="ac">92 Acres · Ongoing</div></div></article>
+      <article class="proj r" style="--d:5"><div class="lg"><img src="assets/client/yadarishi-logo.webp" alt="Yadarishi" loading="lazy"></div><div class="m"><b>Yadarishi</b><span>Yadagirigutta, Warangal Highway</span><div class="ac">90 Acres</div></div></article>
+      <article class="proj r" style="--d:6"><div class="lg" style="padding:0"><img src="assets/client/shivanandi.webp" alt="Shivanandi" loading="lazy" style="width:100%;height:100%;object-fit:cover"></div><div class="m"><b>Shivanandi</b><span>Nandiwanaparthy</span><div class="ac">23.73 Acres · Ongoing</div></div></article>
     </div>
-    <div class="completed rv" style="--i:7">
-      <span class="small" style="letter-spacing:.16em;text-transform:uppercase;font-weight:700">Completed</span>
+    <div class="row r" style="--d:7;margin-top:26px">
+      <span class="faint" style="font-size:10px;letter-spacing:.22em;text-transform:uppercase">Completed</span>
       <span class="chip">Venus Valley</span><span class="chip">Lunaar Green City</span>
-      <span class="tag verified" style="margin-left:auto">Source · divyasrigroup.com</span>
+      <span class="src" style="margin-left:auto">Source · divyasrigroup.com</span>
     </div>
-  </div>
+  </div></div>
 </section>
 
-<!-- 04 NEO CITY -->
-<section class="slide deep" id="neo" data-title="Neo City">
-  <div class="wrap neo">
-    <div>
-      <div class="eyebrow rv">03 · What comes next</div>
-      <h2 class="rv" style="--i:1">Neo City. <em>The next chapter,</em> planned in phases.</h2>
-      <div class="big-acre rv" style="--i:2">
-        <div><div class="n" data-count="100">100</div><div class="l">Acres · total development</div></div>
-        <div><div class="n" data-count="80">80</div><div class="l">Acres · Phase 1</div></div>
+<!-- 04 THE NEW PROJECT -->
+<section class="slide" id="project" data-title="The Next Landmark">
+  <div class="content"><div class="fit split wide-l">
+    <div class="stack">
+      <div class="row r"><span class="tag">The upcoming project</span><span class="ph">Project name · to be confirmed</span></div>
+      <h2 class="r" style="--d:1">Ultra Luxury Villa Plots <em>@ Sadashivpet.</em></h2>
+      <div class="big r" style="--d:2"><div class="n" data-count="400">400</div><div class="l">Acres<br>A mega villa-plot<br>community</div></div>
+      <div class="points r" style="--d:3">
+        <div class="pt"><span class="ic"><svg class="i"><use href="#i-road"/></svg></span><div><b>Right on Mumbai Highway</b>A prime, highly visible location on one of Hyderabad's key growth corridors.</div></div>
+        <div class="pt"><span class="ic"><svg class="i"><use href="#i-build"/></svg></span><div><b>Close to NIMZ</b>Near the 16,000-acre mega Central Government project.</div></div>
+        <div class="pt"><span class="ic"><svg class="i"><use href="#i-cap"/></svg></span><div><b>Excellent connectivity</b>Surrounded by reputed educational institutions.</div></div>
       </div>
-      <p class="lede rv" style="--i:3;margin-top:0">A project of this scale deserves a launch that matches it — a dedicated digital home, a story told consistently, and a steady flow of genuine buyers from day one.</p>
-      <div class="rv" style="--i:4;margin-top:22px;display:flex;gap:10px;flex-wrap:wrap"><span class="tag verified">Listed as ongoing on divyasrigroup.com</span><span class="tag shared">Acreage &amp; phasing as shared</span></div>
-      <div class="todo rv" style="--i:5">
-        <div><svg class="i"><use href="#i-q"/></svg>Exact location &amp; access</div>
-        <div><svg class="i"><use href="#i-q"/></svg>RERA registration</div>
-        <div><svg class="i"><use href="#i-q"/></svg>Master plan &amp; plot sizes</div>
-        <div><svg class="i"><use href="#i-q"/></svg>Launch timeline</div>
+      <p class="note r" style="--d:4"><span class="src shared">Project details as shared by the group</span> · RERA, master plan and launch timeline to be confirmed.</p>
+    </div>
+    <div class="media proj-img" style="--d:1"><img src="assets/img/villa-green.jpg" alt="Modern villa surrounded by greenery" loading="lazy"><span class="cap">Representative imagery — not the actual project</span></div>
+  </div></div>
+</section>
+
+<!-- 05 AMENITIES -->
+<section class="slide" id="amenities" data-title="Inside 400 Acres">
+  <div class="content"><div class="fit">
+    <div class="case-top">
+      <div class="stack" style="max-width:640px">
+        <div class="kicker r">03 · Inside the 400 acres</div>
+        <h2 class="r" style="--d:1">A township <em>designed for a whole life.</em></h2>
       </div>
+      <p class="note r" style="--d:2;max-width:300px;text-align:right">Representative imagery for each planned feature — actual project visuals to replace these once available.</p>
     </div>
-    <div class="neo-visual rv" style="--i:2" aria-label="Illustrative phase diagram — not a project render">
-      <svg viewBox="0 0 400 500" preserveAspectRatio="xMidYMid meet">
-        <g stroke="rgba(247,241,234,.12)" fill="none">
-          <path d="M40 60 L360 40 L380 460 L30 470 Z" stroke-dasharray="4 6" stroke="rgba(217,165,90,.5)"/>
-          <path d="M40 60 L360 40 L372 380 L34 390 Z" class="phase1" stroke="none"/>
-          <path d="M60 120 H350 M58 180 H352 M56 240 H354 M54 300 H356 M52 350 H358 M120 60 V390 M200 50 V390 M280 46 V385"/>
-        </g>
-        <text x="200" y="230" text-anchor="middle" fill="#fff" font-family="Cormorant Garamond,serif" font-size="40">Phase 1</text>
-        <text x="200" y="258" text-anchor="middle" fill="rgba(255,255,255,.8)" font-family="Manrope,sans-serif" font-size="12" letter-spacing="3">80 ACRES</text>
-        <text x="205" y="432" text-anchor="middle" fill="rgba(217,165,90,.9)" font-family="Manrope,sans-serif" font-size="11" letter-spacing="3">FUTURE PHASES · 20 ACRES</text>
-      </svg>
-      <div class="label"><span>Illustrative only — not a project render</span><span class="ph">Neo City imagery: to be added</span></div>
+    <div class="amen">
+      <div class="am"><div class="media" style="--d:2"><img src="assets/img/park.jpg" alt="Landscaped park path" loading="lazy"></div><div class="t r" style="--d:3"><span>10 acres</span><b>Themed Parks</b></div></div>
+      <div class="am"><div class="media" style="--d:3"><img src="assets/img/clubhouse.jpg" alt="Resort clubhouse with pool" loading="lazy"></div><div class="t r" style="--d:4"><span>30,000 sft</span><b>Luxury Clubhouse</b></div></div>
+      <div class="am"><div class="media" style="--d:4"><img src="assets/img/school.jpg" alt="Classroom" loading="lazy"></div><div class="t r" style="--d:5"><span>Dedicated space</span><b>International School</b></div></div>
+      <div class="am"><div class="media" style="--d:5"><img src="assets/img/hospital.jpg" alt="Hospital reception" loading="lazy"></div><div class="t r" style="--d:6"><span>Dedicated space</span><b>Multi-Speciality Hospital</b></div></div>
+      <div class="am"><div class="media" style="--d:6"><img src="assets/img/yoga.jpg" alt="Yoga at sunrise" loading="lazy"></div><div class="t r" style="--d:7"><span>Wellness</span><b>Yoga Centres &amp; Jogging Tracks</b></div></div>
+      <div class="am"><div class="media" style="--d:7"><img src="assets/img/sports.jpg" alt="Running track" loading="lazy"></div><div class="t r" style="--d:8"><span>Active living</span><b>Sports Arena &amp; Recreation</b></div></div>
+      <div class="am"><div class="media" style="--d:8"><img src="assets/img/ev.jpg" alt="EV charging" loading="lazy"></div><div class="t r" style="--d:9"><span>Future-ready</span><b>Dedicated EV Charging</b></div></div>
+      <div class="am solid r" style="--d:9"><div><div class="n">16,000</div><p>acre NIMZ — Central Govt. mega project nearby</p></div><p style="font-size:11px;letter-spacing:.16em;text-transform:uppercase;opacity:.7">Prime on Mumbai Highway</p></div>
     </div>
-  </div>
+  </div></div>
 </section>
 
-<!-- 05 DIGITAL TODAY -->
-<section class="slide" id="today" data-title="Digital Today" style="background:var(--ink-2)">
-  <div class="wrap">
-    <div class="eyebrow rv">04 · Where the brand stands online</div>
-    <h2 class="rv" style="--i:1">Strong on the ground. <em>Quiet online.</em></h2>
-    <p class="lede rv" style="--i:2">The foundations already exist — a website, an Instagram handle, a YouTube channel. What's missing is a consistent rhythm and one connected system behind them.</p>
-    <div class="grid today">
-      <div class="card rv" style="--i:3"><div class="ic"><svg class="i"><use href="#i-social"/></svg></div><h4>Instagram · @divyasri_group</h4><p>Account exists; posting has been relatively inactive over the past few months.</p><div class="foot"><span class="tag shared">Team observation</span></div></div>
-      <div class="card rv" style="--i:4"><div class="ic"><svg class="i"><use href="#i-play"/></svg></div><h4>YouTube channel</h4><p>Channel exists; an ideal home for walkthroughs, drone footage and project updates — currently under-used.</p><div class="foot"><span class="tag shared">Team observation</span></div></div>
-      <div class="card rv" style="--i:5"><div class="ic"><svg class="i"><use href="#i-web"/></svg></div><h4>divyasrigroup.com</h4><p>Live, with project pages and brochures. Headline counters show placeholder values (e.g. “0+ projects”) and Neo City has no detail yet.</p><div class="foot"><span class="tag verified">Reviewed</span></div></div>
-      <div class="card rv" style="--i:6"><div class="ic"><svg class="i"><use href="#i-target"/></svg></div><h4>Lead engine</h4><p>No visible always-on search or social lead system tied to sales feedback and reporting.</p><div class="foot"><span class="tag confirm">To confirm with team</span></div></div>
+<!-- 06 DIGITAL TODAY -->
+<section class="slide" id="today" data-title="Digital Today">
+  <div class="content"><div class="fit">
+    <div class="kicker r">04 · The digital reality</div>
+    <h2 class="r" style="--d:1;margin-top:18px">Strong on the ground. <em>Quiet online.</em></h2>
+    <p class="lede r" style="--d:2;margin-top:18px">The foundations already exist. What's missing is a consistent rhythm — and one connected system behind every channel.</p>
+    <div class="cards">
+      <div class="card r" style="--d:3"><div class="ic"><svg class="i"><use href="#i-social"/></svg></div><h4>Instagram</h4><p>@divyasri_group exists, but posting has been relatively inactive in recent months.</p><div class="src shared">Team observation</div></div>
+      <div class="card r" style="--d:4"><div class="ic"><svg class="i"><use href="#i-play"/></svg></div><h4>YouTube</h4><p>A channel is in place — the natural home for walkthroughs, drone views and updates.</p><div class="src shared">Team observation</div></div>
+      <div class="card r" style="--d:5"><div class="ic"><svg class="i"><use href="#i-web"/></svg></div><h4>Website</h4><p>divyasrigroup.com is live with brochures, but headline counters and new-project pages need attention.</p><div class="src">Reviewed</div></div>
+      <div class="card r" style="--d:6"><div class="ic"><svg class="i"><use href="#i-target"/></svg></div><h4>Lead engine</h4><p>No visible always-on search &amp; social lead system tied to sales feedback.</p><div class="src shared">To confirm</div></div>
     </div>
-    <p class="quote rv" style="--i:7">“You've built the legacy. The opportunity is simply to let more people see it.”</p>
-  </div>
+    <p class="quote r" style="--d:7;margin-top:40px">“The legacy is already built. The opportunity is simply to let more people see it.”</p>
+  </div></div>
 </section>
 
-<!-- 06 BUYER JOURNEY -->
-<section class="slide ivory" id="journey" data-title="Why Digital">
-  <div class="wrap">
-    <div class="eyebrow rv">05 · Why a digital ecosystem matters</div>
-    <h2 class="rv" style="--i:1">Before a buyer visits the site, <em>they visit you online.</em></h2>
-    <p class="lede rv" style="--i:2">Plot buyers research for weeks. Every touchpoint either builds confidence or leaks it — which is why each one must tell the same trusted story.</p>
+<!-- 07 BUYER JOURNEY -->
+<section class="slide" id="journey" data-title="The Modern Buyer">
+  <div class="content"><div class="fit">
+    <div class="kicker r">05 · The modern buyer</div>
+    <h2 class="r" style="--d:1;margin-top:18px;max-width:24ch">Before they visit the site, <em>they visit you online.</em></h2>
     <div class="journey">
-      <div class="step rv" style="--i:3"><div class="dot"><svg class="i"><use href="#i-social"/></svg></div><b>Discovers</b><span>Reels, ads, influencers</span></div>
-      <div class="step rv" style="--i:4"><div class="dot"><svg class="i"><use href="#i-search"/></svg></div><b>Searches</b><span>Google, Maps, reviews</span></div>
-      <div class="step rv" style="--i:5"><div class="dot"><svg class="i"><use href="#i-web"/></svg></div><b>Validates</b><span>Website, legacy, approvals</span></div>
-      <div class="step rv" style="--i:6"><div class="dot"><svg class="i"><use href="#i-play"/></svg></div><b>Experiences</b><span>Walkthroughs, drone views</span></div>
-      <div class="step rv" style="--i:7"><div class="dot"><svg class="i"><use href="#i-chat"/></svg></div><b>Enquires</b><span>Form, call, WhatsApp</span></div>
-      <div class="step last rv" style="--i:8"><div class="dot"><svg class="i"><use href="#i-pin"/></svg></div><b>Visits the site</b><span>Where your team closes</span></div>
+      <div class="jstep r" style="--d:2"><div class="c"><svg class="i"><use href="#i-social"/></svg></div><b>Discover</b><span>Reels, ads, creators</span></div>
+      <div class="jstep r" style="--d:3"><div class="c"><svg class="i"><use href="#i-search"/></svg></div><b>Search</b><span>Google, Maps, reviews</span></div>
+      <div class="jstep r" style="--d:4"><div class="c"><svg class="i"><use href="#i-web"/></svg></div><b>Validate</b><span>Website, legacy, approvals</span></div>
+      <div class="jstep r" style="--d:5"><div class="c"><svg class="i"><use href="#i-play"/></svg></div><b>Experience</b><span>Walkthroughs, drone views</span></div>
+      <div class="jstep r" style="--d:6"><div class="c"><svg class="i"><use href="#i-chat"/></svg></div><b>Enquire</b><span>Form, call, WhatsApp</span></div>
+      <div class="jstep last r" style="--d:7"><div class="c"><svg class="i"><use href="#i-pin"/></svg></div><b>Site visit</b><span>Where your team closes</span></div>
     </div>
-  </div>
+    <div class="journey-band">
+      <div class="r" style="--d:8"><b>Visibility</b>Be found where serious plot buyers search and scroll.</div>
+      <div class="r" style="--d:9"><b>Credibility</b>Let the legacy and approvals speak before the first call.</div>
+      <div class="r" style="--d:10"><b>Conversion</b>Turn interest into genuine, sales-ready site visits.</div>
+    </div>
+  </div></div>
 </section>
 
-<!-- 07 ECOSYSTEM -->
-<section class="slide deep" id="ecosystem" data-title="One Team">
-  <div class="wrap eco">
-    <div class="orbit rv" id="orbit">
+<!-- 08 ECOSYSTEM -->
+<section class="slide" id="ecosystem" data-title="One Team">
+  <div class="content"><div class="fit split">
+    <div class="orbit r" id="orbit">
       <div class="ring"></div><div class="ring r2"></div>
       <div class="hub"><div><b>Divyasri<br>Digital</b><span>One team</span></div></div>
     </div>
-    <div>
-      <div class="eyebrow rv">06 · What we take care of</div>
-      <h2 class="rv" style="--i:1">One team. <em>The complete digital ecosystem.</em></h2>
-      <p class="lede rv" style="--i:2">From strategy and content creation to digital advertising and lead reporting — we manage it end to end. No juggling separate vendors for the website, social media, video, ads or influencers.</p>
-      <div class="resp rv" style="--i:3">
-        <span>Strategy</span><span>Creative direction</span><span>Content planning</span><span>Content creation</span><span>Shoot equipment</span><span>Photography</span><span>Videography</span><span>Editing</span><span>Website</span><span>Social media</span><span>Advertising</span><span>Influencer coordination</span><span>Lead tracking</span><span>Reporting</span>
+    <div class="stack">
+      <div class="kicker r">06 · What we take care of</div>
+      <h2 class="r" style="--d:1">One team. <em>The complete digital ecosystem.</em></h2>
+      <p class="lede r" style="--d:2">From strategy and content creation to advertising and lead reporting — managed end to end. No separate vendors for website, social, video, ads or influencers.</p>
+      <div class="resp r" style="--d:3"><span>Strategy</span><span>Creative direction</span><span>Content planning</span><span>Content creation</span><span>Shoot equipment</span><span>Photography</span><span>Videography</span><span>Editing</span><span>Website</span><span>Social media</span><span>Advertising</span><span>Influencer coordination</span><span>Lead tracking</span><span>Reporting</span></div>
+    </div>
+  </div></div>
+</section>
+
+<!-- 09 SERVICES -->
+<section class="slide" id="services" data-title="Services">
+  <div class="content"><div class="fit">
+    <div class="kicker r">07 · The detail</div>
+    <h2 class="r" style="--d:1;margin-top:18px;max-width:26ch">Nine disciplines. <em>One point of accountability.</em></h2>
+    <div class="svcs r" style="--d:2">
+      <div class="svc"><div class="h"><svg class="i ic"><use href="#i-web"/></svg><b>Website Design &amp; Development</b><small>01</small></div><p>Group &amp; project pages · location · highlights · galleries · video · enquiry forms · WhatsApp · site-visit booking · mobile-first · SEO-ready</p></div>
+      <div class="svc"><div class="h"><svg class="i ic"><use href="#i-social"/></svg><b>Social Media Management</b><small>02</small></div><p>Instagram · Facebook · YouTube · strategy · content calendar · regular posting · reels · project updates · engagement · monitoring</p></div>
+      <div class="svc"><div class="h"><svg class="i ic"><use href="#i-pen"/></svg><b>Content Creation</b><small>03</small></div><p>Creatives · promo &amp; lifestyle videos · cinematic walkthroughs · location stories · development updates · brand storytelling · copywriting</p></div>
+      <div class="svc"><div class="h"><svg class="i ic"><use href="#i-cam"/></svg><b>On-site Photo &amp; Video</b><small>04</small></div><p>Photography · videography · drone (where permitted) · walkthroughs · location &amp; promo shoots · editing — with our own equipment</p></div>
+      <div class="svc"><div class="h"><svg class="i ic"><use href="#i-target"/></svg><b>Meta Advertising</b><small>05</small></div><p>Strategy · audience targeting · lead-gen campaigns · creative testing · optimisation · retargeting · lead tracking · analysis</p></div>
+      <div class="svc"><div class="h"><svg class="i ic"><use href="#i-search"/></svg><b>Google Advertising</b><small>06</small></div><p>Search · location-focused campaigns · keyword targeting · lead generation · conversion tracking · optimisation · reporting</p></div>
+      <div class="svc"><div class="h"><svg class="i ic"><use href="#i-trend"/></svg><b>Search Engine Optimisation</b><small>07</small></div><p>Technical &amp; on-page SEO · keyword research · local SEO · content optimisation · Search Console · organic monitoring</p></div>
+      <div class="svc"><div class="h"><svg class="i ic"><use href="#i-play"/></svg><b>YouTube Marketing</b><small>08</small></div><p>Project, walkthrough &amp; promo videos · Shorts · editing · titles &amp; descriptions · optimisation · channel planning</p></div>
+      <div class="svc"><div class="h"><svg class="i ic"><use href="#i-star"/></svg><b>Influencer Marketing</b><small>09</small></div><p>Local &amp; regional real-estate and lifestyle creators · planning · concepts · shoots · coordination · review · tracking</p><span class="fee">Influencer fees &amp; third-party charges discussed separately.</span></div>
+    </div>
+  </div></div>
+</section>
+
+<!-- 10 PRODUCTION -->
+<section class="slide" id="production" data-title="Production">
+  <div class="content"><div class="fit split wide-l">
+    <div class="stack">
+      <div class="kicker r">08 · Content production, handled</div>
+      <h2 class="r" style="--d:1">We bring the crew. <em>And the cameras.</em></h2>
+      <p class="lede r" style="--d:2">For every agreed shoot, our team plans, captures on site and delivers edited content — ready for web, social, YouTube and ads.</p>
+      <div class="kit r" style="--d:3">
+        <div><svg class="i"><use href="#i-cam"/></svg>Photography</div>
+        <div><svg class="i"><use href="#i-film"/></svg>Videography</div>
+        <div><svg class="i"><use href="#i-drone"/></svg>Drone, where permitted</div>
+        <div><svg class="i"><use href="#i-home"/></svg>Project walkthroughs</div>
+        <div><svg class="i"><use href="#i-pin"/></svg>Location &amp; promo shoots</div>
+        <div><svg class="i"><use href="#i-cut"/></svg>Editing &amp; production</div>
       </div>
+      <div class="promise r" style="--d:4">No cameras, drones, editors or separate production team to arrange — <b>it's all handled from our side</b> for the agreed scope.</div>
     </div>
-  </div>
+    <div class="collage">
+      <div class="media" style="--d:1"><img src="assets/img/drone.jpg" alt="Drone over forest" loading="lazy"></div>
+      <div class="media" style="--d:2"><img src="assets/img/photographer.jpg" alt="Photographer on location" loading="lazy"></div>
+      <div class="media" style="--d:3"><img src="assets/img/editing.jpg" alt="Video editing timeline" loading="lazy"></div>
+    </div>
+  </div></div>
 </section>
 
-<!-- 08 SERVICES -->
-<section class="slide sand" id="services" data-title="Services">
-  <div class="wrap">
-    <div class="eyebrow rv">07 · The detail behind it</div>
-    <h2 class="rv" style="--i:1;max-width:24ch">Nine disciplines, <em>one point of accountability.</em></h2>
-    <div class="grid services">
-      <div class="svc rv" style="--i:2"><div class="top"><div class="ic"><svg class="i"><use href="#i-web"/></svg></div><div><small>01</small><b>Website design &amp; development</b></div></div><ul><li>Group &amp; project pages</li><li>Location &amp; highlights</li><li>Galleries &amp; video</li><li>Enquiry forms</li><li>WhatsApp</li><li>Site-visit booking</li><li>Mobile-first</li><li>SEO-ready</li></ul></div>
-      <div class="svc rv" style="--i:3"><div class="top"><div class="ic"><svg class="i"><use href="#i-social"/></svg></div><div><small>02</small><b>Social media management</b></div></div><ul><li>Instagram</li><li>Facebook</li><li>YouTube</li><li>Strategy &amp; calendar</li><li>Regular posting</li><li>Reels</li><li>Project updates</li><li>Community engagement</li><li>Monitoring</li></ul></div>
-      <div class="svc rv" style="--i:4"><div class="top"><div class="ic"><svg class="i"><use href="#i-pen"/></svg></div><div><small>03</small><b>Content creation</b></div></div><ul><li>Real-estate creatives</li><li>Promo &amp; lifestyle videos</li><li>Cinematic walkthroughs</li><li>Location stories</li><li>Development updates</li><li>Brand storytelling</li><li>Copywriting</li></ul></div>
-      <div class="svc rv" style="--i:5"><div class="top"><div class="ic"><svg class="i"><use href="#i-cam"/></svg></div><div><small>04</small><b>On-site photo &amp; video</b></div></div><ul><li>Photography</li><li>Videography</li><li>Drone (where permitted)</li><li>Walkthroughs</li><li>Location &amp; promo shoots</li><li>Editing</li><li>Our equipment</li></ul></div>
-      <div class="svc rv" style="--i:6"><div class="top"><div class="ic"><svg class="i"><use href="#i-target"/></svg></div><div><small>05</small><b>Meta advertising</b></div></div><ul><li>Campaign strategy</li><li>Audience targeting</li><li>Lead-gen campaigns</li><li>Creative testing</li><li>Optimisation</li><li>Retargeting</li><li>Lead tracking</li></ul></div>
-      <div class="svc rv" style="--i:7"><div class="top"><div class="ic"><svg class="i"><use href="#i-search"/></svg></div><div><small>06</small><b>Google advertising</b></div></div><ul><li>Search campaigns</li><li>Location-focused</li><li>Keyword targeting</li><li>Lead generation</li><li>Conversion tracking</li><li>Reporting</li></ul></div>
-      <div class="svc rv" style="--i:8"><div class="top"><div class="ic"><svg class="i"><use href="#i-trend"/></svg></div><div><small>07</small><b>Search engine optimisation</b></div></div><ul><li>Technical SEO</li><li>On-page SEO</li><li>Keyword research</li><li>Local SEO</li><li>Content optimisation</li><li>Search Console</li><li>Organic monitoring</li></ul></div>
-      <div class="svc rv" style="--i:9"><div class="top"><div class="ic"><svg class="i"><use href="#i-play"/></svg></div><div><small>08</small><b>YouTube marketing</b></div></div><ul><li>Project &amp; walkthrough videos</li><li>Promos</li><li>Shorts</li><li>Editing</li><li>Titles &amp; descriptions</li><li>Video optimisation</li><li>Channel planning</li></ul></div>
-      <div class="svc rv" style="--i:10"><div class="top"><div class="ic"><svg class="i"><use href="#i-star"/></svg></div><div><small>09</small><b>Influencer marketing</b></div></div><ul><li>Local &amp; regional creators</li><li>Real-estate &amp; lifestyle</li><li>Campaign planning</li><li>Concepts &amp; shoots</li><li>Coordination</li><li>Content review</li><li>Tracking</li></ul><p class="note">Influencer fees and third-party charges are discussed separately where applicable.</p></div>
+<!-- 11 CASE: KURA -->
+<section class="slide" id="kura" data-title="Kura Homes">
+  <div class="content"><div class="fit">
+    <div class="case-top">
+      <div class="stack"><div class="kicker r">09 · Case study 01</div><h2 class="r" style="--d:1">Kura Homes — <em>Hi-Five.</em></h2></div>
+      <div class="did r" style="--d:2"><span>Social media</span><span>Reels &amp; series</span><span>Creative production</span><span>Meta lead campaigns</span><span>Lead-quality tracking</span></div>
     </div>
-  </div>
-</section>
-
-<!-- 09 PRODUCTION -->
-<section class="slide" id="production" data-title="Production" style="background:var(--ink)">
-  <div class="wrap prod">
-    <div>
-      <div class="eyebrow rv">08 · Content production, handled</div>
-      <h2 class="rv" style="--i:1">We bring the crew. <em>And the cameras.</em></h2>
-      <p class="lede rv" style="--i:2">For every agreed shoot, our team arrives with the equipment, plans the shot list, captures on site and delivers edited content — ready for the website, social, YouTube and ads.</p>
-      <div class="promise rv" style="--i:3">You won't need to arrange cameras, drones, editors or a separate production team for the agreed scope.</div>
-    </div>
-    <div class="grid kit">
-      <div class="rv" style="--i:2"><svg class="i ic"><use href="#i-cam"/></svg>Photography</div>
-      <div class="rv" style="--i:3"><svg class="i ic"><use href="#i-film"/></svg>Videography</div>
-      <div class="rv" style="--i:4"><svg class="i ic"><use href="#i-drone"/></svg>Drone footage*</div>
-      <div class="rv" style="--i:5"><svg class="i ic"><use href="#i-home"/></svg>Project walkthroughs</div>
-      <div class="rv" style="--i:6"><svg class="i ic"><use href="#i-pin"/></svg>Location shoots</div>
-      <div class="rv" style="--i:7"><svg class="i ic"><use href="#i-star"/></svg>Promotional shoots</div>
-      <div class="rv" style="--i:8"><svg class="i ic"><use href="#i-cut"/></svg>Video editing</div>
-      <div class="rv" style="--i:9"><svg class="i ic"><use href="#i-pen"/></svg>Creative production</div>
-      <p class="small rv" style="--i:10;grid-column:1/-1">*Drone footage wherever permitted.</p>
-    </div>
-  </div>
-</section>
-
-<!-- 10 CASE: KURA HOMES -->
-<section class="slide ivory" id="kura" data-title="Kura Homes">
-  <div class="wrap">
-    <div class="case-head">
+    <div class="case">
       <div>
-        <div class="eyebrow rv">09 · Our experience · Case study 01</div>
-        <h2 class="rv" style="--i:1">Kura Homes — <em>Hi-Five.</em></h2>
-      </div>
-      <div class="did rv" style="--i:2"><span>Social media</span><span>Reels &amp; series content</span><span>Creative production</span><span>Meta lead campaigns</span><span>Lead-quality tracking</span></div>
-    </div>
-    <div class="case-grid">
-      <div>
-        <div class="sub-h rv" style="--i:2">Instagram · last 90 days</div>
-        <div class="grid kpis">
-          <div class="kpi rv" style="--i:3"><div class="n g" data-count="310062">310,062</div><div class="l">Views</div></div>
-          <div class="kpi rv" style="--i:4"><div class="n" data-count="133255">133,255</div><div class="l">Viewers reached</div></div>
-          <div class="kpi rv" style="--i:5"><div class="n">98.6%</div><div class="l">Views from non-followers — new audiences</div></div>
-          <div class="kpi rv" style="--i:6"><div class="n" data-count="1680">1,680</div><div class="l">Profile visits</div></div>
-          <div class="kpi rv" style="--i:7"><div class="n" data-count="2270">2,270</div><div class="l">Interactions · 1,331 accounts engaged</div></div>
-          <div class="kpi rv" style="--i:8"><div class="n">72.5%</div><div class="l">Of views driven by Reels</div></div>
+        <div class="lbl r" style="--d:2">Instagram · last 90 days</div>
+        <div class="kpis r" style="--d:3">
+          <div class="kpi"><div class="n g" data-count="310062">310,062</div><div class="l">Views</div></div>
+          <div class="kpi"><div class="n" data-count="133255">133,255</div><div class="l">Viewers reached</div></div>
+          <div class="kpi"><div class="n">98.6%</div><div class="l">Views from non-followers</div></div>
+          <div class="kpi"><div class="n" data-count="1680">1,680</div><div class="l">Profile visits</div></div>
+          <div class="kpi"><div class="n" data-count="2270">2,270</div><div class="l">Interactions</div></div>
+          <div class="kpi"><div class="n">72.5%</div><div class="l">Views from Reels</div></div>
         </div>
-        <div class="sub-h rv" style="--i:9">Meta lead campaigns · 69 leads</div>
-        <div class="bars rv" style="--i:10">
+        <div class="lbl r" style="--d:4;margin-top:20px">Meta lead campaigns · 69 leads</div>
+        <div class="bars r" style="--d:5">
           <div class="bar"><span>Genuine (not junk/test)</span><span class="t"><i data-w="81.16"></i></span><b>81.2%</b></div>
           <div class="bar"><span>Actionable</span><span class="t"><i data-w="62.32"></i></span><b>62.3%</b></div>
           <div class="bar"><span>Qualified · high intent</span><span class="t"><i data-w="46.38"></i></span><b>46.4%</b></div>
         </div>
-        <div class="grid kpis" style="margin-top:16px">
-          <div class="kpi ph-k rv" style="--i:11"><div class="n">To be added</div><div class="l">Campaign duration</div></div>
-          <div class="kpi ph-k rv" style="--i:12"><div class="n">To be added</div><div class="l">Ad spend</div></div>
-          <div class="kpi ph-k rv" style="--i:13"><div class="n">To be added</div><div class="l">Cost per lead</div></div>
+        <div class="kpis r" style="--d:6;margin-top:16px">
+          <div class="kpi p"><div class="n">To be added</div><div class="l">Duration</div></div>
+          <div class="kpi p"><div class="n">To be added</div><div class="l">Ad spend</div></div>
+          <div class="kpi p"><div class="n">To be added</div><div class="l">Cost per lead</div></div>
         </div>
       </div>
       <div>
-        <div class="sub-h rv" style="--i:3">What the sales feedback taught us</div>
-        <div class="bars rv" style="--i:4">
-          <div class="bar"><span>“Veerendher Sir” creative</span><span class="t"><i data-w="68"></i></span><b>68%</b></div>
+        <div class="lbl r" style="--d:3">Qualified rate by creative</div>
+        <div class="bars r" style="--d:4">
+          <div class="bar"><span>“Veerendher Sir”</span><span class="t"><i data-w="68"></i></span><b>68%</b></div>
           <div class="bar"><span>Customer testimonial</span><span class="t"><i data-w="66.67"></i></span><b>66.7%</b></div>
-          <div class="bar"><span>“5 Lakh Gold” offer</span><span class="t"><i class="low" data-w="11.54"></i></span><b>11.5%</b></div>
+          <div class="bar"><span>“5 Lakh Gold” offer</span><span class="t"><i class="lo" data-w="11.54"></i></span><b>11.5%</b></div>
         </div>
-        <p class="insight rv" style="--i:5">Qualified-lead rate by creative. Trust-led, human stories outperformed the offer-led creative by ~6×. Because we tracked quality — not just volume — the weaker ad set was flagged for optimisation early.</p>
-        <div class="sub-h rv" style="--i:6">From the dashboards</div>
-        <div class="grid shots rv" style="--i:7">
-          <figure class="shot" data-full="assets/cases/kura-ig-views.png"><img src="assets/cases/kura-ig-views.png" alt="Kura Homes Instagram views insights" loading="lazy"><figcaption>Instagram views · 90 days</figcaption></figure>
-          <figure class="shot" data-full="assets/cases/kura-ig-interactions.png"><img src="assets/cases/kura-ig-interactions.png" alt="Kura Homes Instagram interactions insights" loading="lazy"><figcaption>Interactions &amp; profile</figcaption></figure>
-          <figure class="shot" data-full="assets/cases/kura-overall.png"><img src="assets/cases/kura-overall.png" alt="Kura Homes overall lead quality chart" loading="lazy" style="object-fit:contain"><figcaption>Overall lead quality</figcaption></figure>
-          <figure class="shot" data-full="assets/cases/kura-by-campaign.png"><img src="assets/cases/kura-by-campaign.png" alt="Kura Homes lead quality by campaign chart" loading="lazy" style="object-fit:contain"><figcaption>Quality by campaign</figcaption></figure>
+        <p class="insight r" style="--d:5;margin-top:14px"><b>Trust-led stories outperformed the offer-led creative ~6×.</b> Because we tracked quality — not just volume — the weaker ad set was flagged for optimisation early.</p>
+        <div class="shots r" style="--d:6;margin-top:14px">
+          <figure class="shot" data-full="assets/cases/kura-ig-views.png"><img src="assets/cases/kura-ig-views.png" alt="Kura Homes Instagram views dashboard" loading="lazy"><figcaption>Instagram views · 90 days</figcaption></figure>
+          <figure class="shot" data-full="assets/cases/kura-ig-interactions.png"><img src="assets/cases/kura-ig-interactions.png" alt="Kura Homes Instagram interactions dashboard" loading="lazy"><figcaption>Interactions &amp; profile</figcaption></figure>
+          <figure class="shot c" data-full="assets/cases/kura-overall.png"><img src="assets/cases/kura-overall.png" alt="Kura Homes overall lead quality chart" loading="lazy"><figcaption>Overall lead quality</figcaption></figure>
+          <figure class="shot c" data-full="assets/cases/kura-by-campaign.png"><img src="assets/cases/kura-by-campaign.png" alt="Kura Homes lead quality by campaign" loading="lazy"><figcaption>Quality by campaign</figcaption></figure>
         </div>
       </div>
     </div>
-  </div>
+  </div></div>
 </section>
 
-<!-- 11 CASE: SUNSHINE -->
-<section class="slide sand" id="sunshine" data-title="Sunshine Green Meadows">
-  <div class="wrap">
-    <div class="case-head">
-      <div>
-        <div class="eyebrow rv">10 · Our experience · Case study 02</div>
-        <h2 class="rv" style="--i:1">Sunshine <em>Green Meadows.</em></h2>
-      </div>
-      <div class="did rv" style="--i:2"><span>Meta lead campaigns</span><span>Static &amp; video creatives</span><span>Creative testing</span><span>Sales-status tracking</span></div>
+<!-- 12 CASE: SUNSHINE -->
+<section class="slide" id="sunshine" data-title="Sunshine Green Meadows">
+  <div class="content"><div class="fit">
+    <div class="case-top">
+      <div class="stack"><div class="kicker r">10 · Case study 02</div><h2 class="r" style="--d:1">Sunshine <em>Green Meadows.</em></h2></div>
+      <div class="did r" style="--d:2"><span>Meta lead campaigns</span><span>Static &amp; video creatives</span><span>Creative testing</span><span>Sales-status tracking</span></div>
     </div>
-    <div class="case-grid">
+    <div class="case">
       <div>
-        <div class="sub-h rv" style="--i:2">Home-buyer leads · 4 creatives</div>
-        <div class="grid kpis">
-          <div class="kpi rv" style="--i:3"><div class="n g" data-count="229">229</div><div class="l">Total leads</div></div>
-          <div class="kpi rv" style="--i:4"><div class="n" data-count="189">189</div><div class="l">Genuine leads · 82.5%</div></div>
-          <div class="kpi rv" style="--i:5"><div class="n" data-count="51">51</div><div class="l">High-intent qualified · 22.3%</div></div>
-          <div class="kpi rv" style="--i:6"><div class="n" data-count="36">36</div><div class="l">Confirmed interested</div></div>
-          <div class="kpi rv" style="--i:7"><div class="n" data-count="7">7</div><div class="l">Site visits booked</div></div>
-          <div class="kpi rv" style="--i:8"><div class="n g" data-count="7">7</div><div class="l">Site visits completed</div></div>
+        <div class="lbl r" style="--d:2">Home-buyer leads · 4 creatives</div>
+        <div class="kpis r" style="--d:3">
+          <div class="kpi"><div class="n g" data-count="229">229</div><div class="l">Total leads</div></div>
+          <div class="kpi"><div class="n" data-count="189">189</div><div class="l">Genuine · 82.5%</div></div>
+          <div class="kpi"><div class="n" data-count="51">51</div><div class="l">High-intent qualified · 22.3%</div></div>
+          <div class="kpi"><div class="n" data-count="36">36</div><div class="l">Confirmed interested</div></div>
+          <div class="kpi"><div class="n" data-count="7">7</div><div class="l">Site visits booked</div></div>
+          <div class="kpi"><div class="n g" data-count="7">7</div><div class="l">Site visits completed</div></div>
         </div>
-        <div class="grid kpis" style="margin-top:16px">
-          <div class="kpi ph-k rv" style="--i:9"><div class="n">To be added</div><div class="l">Campaign duration</div></div>
-          <div class="kpi ph-k rv" style="--i:10"><div class="n">To be added</div><div class="l">Ad spend</div></div>
-          <div class="kpi ph-k rv" style="--i:11"><div class="n">To be added</div><div class="l">Cost per lead</div></div>
+        <div class="kpis r" style="--d:4;margin-top:16px">
+          <div class="kpi p"><div class="n">To be added</div><div class="l">Duration</div></div>
+          <div class="kpi p"><div class="n">To be added</div><div class="l">Ad spend</div></div>
+          <div class="kpi p"><div class="n">To be added</div><div class="l">Cost per lead</div></div>
         </div>
       </div>
       <div>
-        <div class="sub-h rv" style="--i:3">High-intent rate by creative</div>
-        <div class="bars rv" style="--i:4">
+        <div class="lbl r" style="--d:3">High-intent rate by creative</div>
+        <div class="bars r" style="--d:4">
           <div class="bar"><span>Creative 2 · 153 leads</span><span class="t"><i data-w="25.49"></i></span><b>25.5%</b></div>
           <div class="bar"><span>5,899 sqft static</span><span class="t"><i data-w="20.83"></i></span><b>20.8%</b></div>
           <div class="bar"><span>V2 5,899 sqft static</span><span class="t"><i data-w="16.13"></i></span><b>16.1%</b></div>
-          <div class="bar"><span>Creative 1</span><span class="t"><i class="low" data-w="9.52"></i></span><b>9.5%</b></div>
+          <div class="bar"><span>Creative 1</span><span class="t"><i class="lo" data-w="9.52"></i></span><b>9.5%</b></div>
         </div>
-        <p class="insight rv" style="--i:5">Creative 2 drove two-thirds of all leads and 39 high-intent buyers — including 8 of the 14 site visits booked or completed. Junk stayed consistently below 20% across every creative.</p>
-        <div class="sub-h rv" style="--i:6">From the dashboards</div>
-        <div class="grid shots rv" style="--i:7">
-          <figure class="shot" data-full="assets/cases/sunshine-table.png"><img src="assets/cases/sunshine-table.png" alt="Sunshine lead quality summary table" loading="lazy" style="object-fit:contain"><figcaption>Lead-quality summary</figcaption></figure>
-          <figure class="shot" data-full="assets/cases/sunshine-status.png"><img src="assets/cases/sunshine-status.png" alt="Sunshine detailed lead status chart" loading="lazy" style="object-fit:contain"><figcaption>Status breakdown</figcaption></figure>
+        <p class="insight r" style="--d:5;margin-top:14px"><b>Creative 2 drove two-thirds of all leads</b> and 39 high-intent buyers — including 8 of the 14 site visits booked or completed. Junk stayed below 20% on every creative.</p>
+        <div class="shots r" style="--d:6;margin-top:14px">
+          <figure class="shot c" data-full="assets/cases/sunshine-table.png"><img src="assets/cases/sunshine-table.png" alt="Sunshine lead quality summary" loading="lazy"><figcaption>Lead-quality summary</figcaption></figure>
+          <figure class="shot c" data-full="assets/cases/sunshine-status.png"><img src="assets/cases/sunshine-status.png" alt="Sunshine lead status breakdown" loading="lazy"><figcaption>Status breakdown</figcaption></figure>
         </div>
       </div>
     </div>
-  </div>
+  </div></div>
 </section>
 
-<!-- 12 LEAD QUALITY SYSTEM -->
-<section class="slide deep" id="leads" data-title="Lead Quality">
-  <div class="wrap">
-    <div class="eyebrow rv">11 · How we measure success</div>
-    <h2 class="rv" style="--i:1;max-width:22ch">We don't count leads. <em>We qualify them.</em></h2>
+<!-- 13 LEAD QUALITY -->
+<section class="slide" id="leads" data-title="Lead Quality">
+  <div class="content"><div class="fit">
+    <div class="kicker r">11 · How we measure success</div>
+    <h2 class="r" style="--d:1;margin-top:18px;max-width:24ch">We don't just count leads. <em>We qualify them.</em></h2>
     <div class="loop">
       <div class="flow">
-        <div class="fs rv" style="--i:2"><div class="num"><svg class="i"><use href="#i-target"/></svg></div><div><b>Lead generation</b><p>Meta Ads, Google Ads, the website and other agreed channels.</p></div></div>
-        <div class="fs rv" style="--i:3"><div class="num"><svg class="i"><use href="#i-trend"/></svg></div><div><b>Lead tracking</b><p>Every enquiry captured and tied back to its campaign and creative.</p></div></div>
-        <div class="fs rv" style="--i:4"><div class="num"><svg class="i"><use href="#i-phone"/></svg></div><div><b>Sales team follow-up</b><p>Your sales team calls and qualifies each lead.</p></div></div>
-        <div class="fs hl rv" style="--i:5"><div class="num"><svg class="i"><use href="#i-users"/></svg></div><div><b>Sales feedback <span class="badge">Every 2 days</span></b><p>Genuine? Qualified? Interested? Reachable? Site visit planned or done?</p></div></div>
-        <div class="fs rv" style="--i:6"><div class="num"><svg class="i"><use href="#i-loop"/></svg></div><div><b>Campaign optimisation</b><p>Feedback reshapes targeting, creatives and budgets.</p></div></div>
-        <div class="fs hl rv" style="--i:7"><div class="num"><svg class="i"><use href="#i-doc"/></svg></div><div><b>Performance report <span class="badge">Weekly</span></b><p>Structured insights and recommendations for the week ahead.</p></div></div>
+        <div class="fs r" style="--d:2"><div class="c"><svg class="i"><use href="#i-target"/></svg></div><div><b>Lead generation</b><p>Meta Ads, Google Ads, website and agreed channels.</p></div></div>
+        <div class="fs r" style="--d:3"><div class="c"><svg class="i"><use href="#i-trend"/></svg></div><div><b>Lead tracking</b><p>Every enquiry tied to its campaign and creative.</p></div></div>
+        <div class="fs r" style="--d:4"><div class="c"><svg class="i"><use href="#i-phone"/></svg></div><div><b>Sales team follow-up</b><p>Your sales team calls and qualifies each lead.</p></div></div>
+        <div class="fs hl r" style="--d:5"><div class="c"><svg class="i"><use href="#i-users"/></svg></div><div><b>Sales feedback <span class="badge">Every 2 days</span></b><p>Genuine · qualified · interested · reachable · visit planned · visit done.</p></div></div>
+        <div class="fs r" style="--d:6"><div class="c"><svg class="i"><use href="#i-loop"/></svg></div><div><b>Campaign optimisation</b><p>Feedback reshapes targeting, creatives and budgets.</p></div></div>
+        <div class="fs hl r" style="--d:7"><div class="c"><svg class="i"><use href="#i-doc"/></svg></div><div><b>Performance report <span class="badge">Weekly</span></b><p>Structured insights and next-week recommendations.</p></div></div>
       </div>
       <div>
-        <div class="report rv" style="--i:4">
-          <div class="rh"><b>Weekly Report</b><span class="tag shared">Sample format</span></div>
+        <div class="report r" style="--d:4">
+          <div class="rh"><b>Weekly Report</b><span class="src">Sample format</span></div>
           <table>
             <tr><td>Total leads generated</td><td>—</td></tr>
             <tr><td>Genuine leads</td><td>—</td></tr>
-            <tr><td>Qualified leads</td><td>—</td></tr>
-            <tr><td>Lead quality %</td><td>—</td></tr>
+            <tr><td>Qualified leads · lead quality %</td><td>— · —</td></tr>
             <tr><td>Cost per lead</td><td>—</td></tr>
             <tr><td>Campaign performance</td><td>by channel &amp; creative</td></tr>
-            <tr><td>Site-visit enquiries / site visits</td><td>— / —</td></tr>
-            <tr><td>Recommendations</td><td>next week's plan</td></tr>
+            <tr><td>Site-visit enquiries · site visits</td><td>— · —</td></tr>
+            <tr><td>Sales team feedback</td><td>summary</td></tr>
+            <tr><td>Recommendations</td><td>next week</td></tr>
           </table>
-          <div class="feedback"><span>Genuine</span><span>Qualified</span><span>Interested</span><span>Reachable</span><span>Visit planned</span><span>Visit done</span></div>
         </div>
         <div class="mantra">
-          <div class="rv" style="--i:6"><div class="k">Every 2 days</div><p>We collect lead-quality feedback from the sales team.</p></div>
-          <div class="rv" style="--i:7"><div class="k">Every week</div><p>A structured performance report with insights and recommendations.</p></div>
+          <div class="r" style="--d:6"><div class="k">Every 2 days</div><p>Lead-quality feedback from the sales team.</p></div>
+          <div class="r" style="--d:7"><div class="k">Every week</div><p>A structured report with insights &amp; recommendations.</p></div>
         </div>
       </div>
     </div>
-  </div>
+  </div></div>
 </section>
 
-<!-- 13 NEO CITY ROADMAP -->
-<section class="slide ivory" id="roadmap" data-title="Neo City Plan">
-  <div class="wrap">
-    <div class="eyebrow rv">12 · How we could support Neo City</div>
-    <h2 class="rv" style="--i:1">A launch that <em>matches the land.</em></h2>
-    <p class="lede rv" style="--i:2">An indicative path — to be shaped together once the project details, approvals and launch timeline are confirmed.</p>
-    <div class="grid road">
-      <div class="ph-card rv" style="--i:3"><div class="st">Foundation</div><h3>Set the stage</h3><ul><li>Brand &amp; digital audit</li><li>One verified set of group numbers</li><li>Revive Instagram, Facebook, YouTube</li><li>Website &amp; Neo City pages</li><li>On-site &amp; drone shoot</li></ul></div>
-      <div class="ph-card rv" style="--i:4"><div class="st">Pre-launch</div><h3>Build anticipation</h3><ul><li>Legacy &amp; founder storytelling</li><li>Location &amp; corridor content</li><li>Teasers, reels &amp; Shorts</li><li>Influencer previews</li><li>SEO &amp; Google presence</li></ul></div>
-      <div class="ph-card rv" style="--i:5"><div class="st">Launch · Phase 1</div><h3>Fill the pipeline</h3><ul><li>Meta &amp; Google lead campaigns</li><li>WhatsApp &amp; site-visit funnels</li><li>Creative testing</li><li>Feedback every 2 days</li><li>Weekly reports</li></ul></div>
-      <div class="ph-card rv" style="--i:6"><div class="st">Sustain</div><h3>Keep the momentum</h3><ul><li>Development updates</li><li>Customer &amp; site-visit stories</li><li>Retargeting</li><li>Organic search growth</li><li>Ready for future phases</li></ul></div>
+<!-- 14 ROADMAP -->
+<section class="slide" id="roadmap" data-title="Launch Plan">
+  <div class="content"><div class="fit">
+    <div class="kicker r">12 · Supporting the Sadashivpet launch</div>
+    <h2 class="r" style="--d:1;margin-top:18px">A launch that <em>matches 400 acres.</em></h2>
+    <p class="lede r" style="--d:2;margin-top:16px">An indicative path — to be shaped together once approvals, master plan and launch timing are confirmed.</p>
+    <div class="road">
+      <div class="phase r" style="--d:3"><div class="dot"></div><div class="st">Phase 01</div><h3>Foundation</h3><ul><li>Brand &amp; digital audit</li><li>One verified set of group numbers</li><li>Revive Instagram, Facebook, YouTube</li><li>Website &amp; project microsite</li><li>On-site &amp; drone shoot</li></ul></div>
+      <div class="phase r" style="--d:4"><div class="dot"></div><div class="st">Phase 02</div><h3>Pre-launch</h3><ul><li>Legacy &amp; founder storytelling</li><li>Mumbai Highway &amp; NIMZ location content</li><li>Teasers, reels &amp; Shorts</li><li>Influencer previews</li><li>SEO &amp; Google presence</li></ul></div>
+      <div class="phase r" style="--d:5"><div class="dot"></div><div class="st">Phase 03</div><h3>Launch</h3><ul><li>Meta &amp; Google lead campaigns</li><li>WhatsApp &amp; site-visit funnels</li><li>Creative testing</li><li>Feedback every 2 days</li><li>Weekly reports</li></ul></div>
+      <div class="phase r" style="--d:6"><div class="dot"></div><div class="st">Phase 04</div><h3>Sustain</h3><ul><li>Development &amp; amenity updates</li><li>Customer &amp; site-visit stories</li><li>Retargeting</li><li>Organic search growth</li><li>Ready for every next phase</li></ul></div>
     </div>
-  </div>
+  </div></div>
 </section>
 
-<!-- 14 CLOSE -->
+<!-- 15 CLOSE -->
 <section class="slide" id="close" data-title="Next Steps">
-  <div class="wrap">
-    <div class="eyebrow rv" style="justify-content:center">Let's continue the conversation</div>
-    <h2 class="rv" style="--i:1">You built the legacy on the ground. <em>Let's bring it to the digital world.</em></h2>
-    <div class="next">
-      <div class="rv" style="--i:2"><div class="k">STEP 01</div><b>Share the details</b><p>Neo City location, approvals, master plan and launch timing.</p></div>
-      <div class="rv" style="--i:3"><div class="k">STEP 02</div><b>Digital audit</b><p>We review every existing channel and align the brand story.</p></div>
-      <div class="rv" style="--i:4"><div class="k">STEP 03</div><b>Plan &amp; proposal</b><p>A scoped plan for the Neo City launch, built around your sales team.</p></div>
+  <div class="content"><div class="fit close-wrap">
+    <div class="r"><span class="tag">Let's continue the conversation</span></div>
+    <h2 class="r" style="--d:1">You built the legacy on the ground. <em>Let's bring it to the digital world.</em></h2>
+    <div class="next r" style="--d:2">
+      <div><div class="k">STEP 01</div><b>Share the details</b><p>Project name, approvals, master plan and launch timing.</p></div>
+      <div><div class="k">STEP 02</div><b>Digital audit</b><p>We review every channel and align the brand story.</p></div>
+      <div><div class="k">STEP 03</div><b>Plan &amp; proposal</b><p>A scoped launch plan built around your sales team.</p></div>
     </div>
-    <div class="sign rv" style="--i:5">
-      <img src="assets/client/logo-light.webp" alt="Divyasri Group">
+    <div class="sign r" style="--d:3">
+      <img src="assets/client/logo.webp" alt="Divyasri Group">
       <span>×</span>
-      <span class="agency" style="font-size:16px;color:var(--ivory);font-weight:600">[Agency Name]</span>
-      <span class="ph">Contact details: to be added</span>
+      <span class="ag agency">[Agency Name]</span>
+      <span class="ph">Contact details · to be added</span>
     </div>
-  </div>
+  </div></div>
 </section>
 
 </main>
@@ -694,103 +731,183 @@ em{font-style:italic;background:var(--grad);-webkit-background-clip:text;backgro
 <div class="lb" id="lb"><img alt=""></div>
 
 <script>
-// Set your agency name here once; it fills every [Agency Name] slot.
+// Set your agency name once; it fills every [Agency Name] slot.
 const AGENCY_NAME = "";
 if (AGENCY_NAME) document.querySelectorAll(".agency").forEach(el => el.textContent = AGENCY_NAME);
 
-const slides = [...document.querySelectorAll(".slide")];
-const total = slides.length;
-const pad = n => String(n).padStart(2, "0");
-const counter = document.getElementById("counter");
-const dots = document.getElementById("dots");
-const progress = document.getElementById("progress");
-const hint = document.getElementById("hint");
-let current = 0;
+(function () {
+  const slides = [...document.querySelectorAll(".slide")];
+  const total = slides.length;
+  const pad = n => String(n).padStart(2, "0");
+  const cur = document.getElementById("cur"), bar = document.getElementById("bar");
+  const prevBtn = document.getElementById("prev"), nextBtn = document.getElementById("next");
+  const hint = document.getElementById("hint"), dotsEl = document.getElementById("dots");
+  const lb = document.getElementById("lb");
+  const deckMQ = matchMedia("(min-width: 861px) and (min-height: 560px)");
+  const DURATION = 900;
+  let current = 0, locked = false, deck = false;
 
-slides.forEach((s, i) => {
-  const a = document.createElement("a");
-  a.href = "#" + s.id;
-  a.setAttribute("aria-label", s.dataset.title);
-  a.innerHTML = "<span>" + pad(i + 1) + " · " + s.dataset.title + "</span>";
-  dots.appendChild(a);
-});
-const dotLinks = [...dots.children];
+  document.getElementById("tot").textContent = pad(total);
 
-// ecosystem nodes
-const nodes = [["i-web","Website"],["i-social","Social"],["i-pen","Content"],["i-cam","On-site shoots"],["i-target","Meta Ads"],["i-search","Google Ads"],["i-trend","SEO"],["i-play","YouTube"],["i-star","Influencers"],["i-doc","Lead reports"]];
-const orbit = document.getElementById("orbit");
-nodes.forEach(([ic, label], i) => {
-  const ang = (i / nodes.length) * Math.PI * 2 - Math.PI / 2;
-  const n = document.createElement("div");
-  n.className = "node";
-  n.style.transform = `translate(${Math.cos(ang) * 41}cqw, ${Math.sin(ang) * 41}cqw)`;
-  n.innerHTML = `<div class="c"><svg class="i"><use href="#${ic}"/></svg></div>${label}`;
-  orbit.appendChild(n);
-});
+  slides.forEach((s, i) => {
+    const b = document.createElement("button");
+    b.setAttribute("aria-label", s.dataset.title);
+    b.innerHTML = "<span>" + pad(i + 1) + " · " + s.dataset.title + "</span>";
+    b.addEventListener("click", () => go(i));
+    dotsEl.appendChild(b);
+  });
+  const dots = [...dotsEl.children];
 
+  // ecosystem nodes around the hub
+  const nodes = [["i-web","Website"],["i-social","Social"],["i-pen","Content"],["i-cam","Shoots"],["i-target","Meta Ads"],["i-search","Google Ads"],["i-trend","SEO"],["i-play","YouTube"],["i-star","Influencers"],["i-doc","Lead reports"]];
+  const orbit = document.getElementById("orbit");
+  nodes.forEach(([ic, label], i) => {
+    const a = (i / nodes.length) * Math.PI * 2 - Math.PI / 2;
+    const n = document.createElement("div");
+    n.className = "node";
+    n.style.left = 50 + Math.cos(a) * 42 + "%";
+    n.style.top = 50 + Math.sin(a) * 42 + "%";
+    n.style.setProperty("--d", i);
+    n.innerHTML = '<div class="c"><svg class="i"><use href="#' + ic + '"/></svg></div>' + label;
+    orbit.appendChild(n);
+  });
 
-// count-up
-function countUp(el) {
-  if (el.dataset.done) return;
-  el.dataset.done = 1;
-  const end = +el.dataset.count, suf = el.dataset.suffix || "", t0 = performance.now(), d = 1600;
-  const step = t => {
-    const p = Math.min((t - t0) / d, 1), e = 1 - Math.pow(1 - p, 3);
-    el.textContent = Math.round(end * e).toLocaleString("en-US") + suf;
-    if (p < 1) requestAnimationFrame(step);
-  };
-  requestAnimationFrame(step);
-}
-
-const io = new IntersectionObserver(entries => {
-  entries.forEach(en => {
-    if (!en.isIntersecting) return;
-    const s = en.target;
-    s.classList.add("in");
+  function countUp(el) {
+    if (el.dataset.done) return;
+    el.dataset.done = 1;
+    const end = +el.dataset.count, suf = el.dataset.suffix || "", d = 1800;
+    setTimeout(() => {
+      const t0 = performance.now();
+      const step = t => {
+        const p = Math.min((t - t0) / d, 1), e = 1 - Math.pow(1 - p, 4);
+        el.textContent = Math.round(end * e).toLocaleString("en-US") + suf;
+        if (p < 1) requestAnimationFrame(step);
+      };
+      requestAnimationFrame(step);
+    }, 350);
+  }
+  function activate(s) {
+    s.classList.add("active");
     s.querySelectorAll("[data-count]").forEach(countUp);
     s.querySelectorAll("[data-w]").forEach(b => b.style.width = b.dataset.w + "%");
+  }
+
+  function setUI(i) {
+    cur.textContent = pad(i + 1);
+    bar.style.width = ((i + 1) / total * 100) + "%";
+    dots.forEach((d, k) => d.classList.toggle("on", k === i));
+    prevBtn.disabled = i === 0;
+    nextBtn.disabled = i === total - 1;
+  }
+
+  // keep every slide inside one screen in deck mode
+  function fitAll() {
+    slides.forEach(s => {
+      const f = s.querySelector(".fit"), c = s.querySelector(".content");
+      f.style.transform = "none";
+      if (!deck) return;
+      const cs = getComputedStyle(c);
+      const avail = c.clientHeight - parseFloat(cs.paddingTop) - parseFloat(cs.paddingBottom);
+      const sc = Math.min(1, avail / f.scrollHeight);
+      if (sc < 1) f.style.transform = "scale(" + sc.toFixed(3) + ")";
+    });
+  }
+
+  function visibleIndex() {
+    const mid = scrollY + innerHeight * 0.4;
+    let idx = 0;
+    slides.forEach((s, i) => { if (s.offsetTop <= mid) idx = i; });
+    return idx;
+  }
+
+  function go(i, instant) {
+    i = Math.max(0, Math.min(total - 1, i));
+    hint.classList.add("hide");
+    if (!deck) { slides[i].scrollIntoView({ behavior: instant ? "auto" : "smooth" }); return; }
+    if (locked || i === current) return;
+    locked = true;
+    document.body.classList.toggle("back", i < current);
+    slides[current].classList.remove("active");
+    current = i;
+    activate(slides[i]);
+    setUI(i);
+    history.replaceState(null, "", "#" + slides[i].id);
+    setTimeout(() => locked = false, DURATION);
+  }
+  const next = () => go((deck ? current : visibleIndex()) + 1);
+  const prev = () => go((deck ? current : visibleIndex()) - 1);
+  prevBtn.addEventListener("click", prev);
+  nextBtn.addEventListener("click", next);
+  document.querySelectorAll("[data-go]").forEach(a => a.addEventListener("click", e => { e.preventDefault(); go(+a.dataset.go); }));
+
+  document.addEventListener("keydown", e => {
+    if (lb.classList.contains("on")) { if (e.key === "Escape") lb.classList.remove("on"); return; }
+    if (["ArrowRight", "ArrowDown", "PageDown", " "].includes(e.key)) { e.preventDefault(); next(); }
+    else if (["ArrowLeft", "ArrowUp", "PageUp"].includes(e.key)) { e.preventDefault(); prev(); }
+    else if (e.key === "Home") { e.preventDefault(); go(0); }
+    else if (e.key === "End") { e.preventDefault(); go(total - 1); }
+    else if (e.key.toLowerCase() === "f") { document.fullscreenElement ? document.exitFullscreen() : document.documentElement.requestFullscreen?.(); }
   });
-}, { threshold: 0, rootMargin: "-20% 0px -20% 0px" });
-slides.forEach(s => io.observe(s));
 
-function update() {
-  const mid = window.scrollY + window.innerHeight * 0.45;
-  let idx = 0;
-  slides.forEach((s, i) => { if (s.offsetTop <= mid) idx = i; });
-  current = idx;
-  counter.innerHTML = "<b>" + pad(idx + 1) + "</b> / " + pad(total);
-  dotLinks.forEach((d, i) => d.classList.toggle("on", i === idx));
-  const light = slides[idx].classList.contains("ivory") || slides[idx].classList.contains("sand");
-  document.body.classList.toggle("light-ui", light);
-  const max = document.documentElement.scrollHeight - window.innerHeight;
-  progress.style.width = (max > 0 ? window.scrollY / max * 100 : 0) + "%";
-  if (window.scrollY > 80) hint.style.opacity = 0;
-}
-window.addEventListener("scroll", update, { passive: true });
-window.addEventListener("resize", update);
-update();
+  // wheel / trackpad: one slide per gesture
+  let acc = 0, wt = null;
+  addEventListener("wheel", e => {
+    if (!deck) return;
+    e.preventDefault();
+    acc += e.deltaY;
+    clearTimeout(wt);
+    wt = setTimeout(() => {
+      if (Math.abs(acc) > 40) acc > 0 ? next() : prev();
+      acc = 0;
+    }, 60);
+  }, { passive: false });
 
-function go(i) {
-  i = Math.max(0, Math.min(total - 1, i));
-  slides[i].scrollIntoView({ behavior: "smooth" });
-}
-document.addEventListener("keydown", e => {
-  if (lb.classList.contains("on")) { if (e.key === "Escape") lb.classList.remove("on"); return; }
-  if (["ArrowRight", "ArrowDown", "PageDown", " "].includes(e.key)) { e.preventDefault(); go(current + 1); }
-  else if (["ArrowLeft", "ArrowUp", "PageUp"].includes(e.key)) { e.preventDefault(); go(current - 1); }
-  else if (e.key === "Home") { e.preventDefault(); go(0); }
-  else if (e.key === "End") { e.preventDefault(); go(total - 1); }
-  else if (e.key.toLowerCase() === "f") { document.fullscreenElement ? document.exitFullscreen() : document.documentElement.requestFullscreen?.(); }
-});
+  // touch swipe in deck mode
+  let tx = 0, ty = 0;
+  document.addEventListener("touchstart", e => { tx = e.touches[0].clientX; ty = e.touches[0].clientY; }, { passive: true });
+  document.addEventListener("touchend", e => {
+    if (!deck) return;
+    const dx = tx - e.changedTouches[0].clientX, dy = ty - e.changedTouches[0].clientY;
+    if (Math.max(Math.abs(dx), Math.abs(dy)) > 50) (Math.abs(dy) > Math.abs(dx) ? dy : dx) > 0 ? next() : prev();
+  }, { passive: true });
 
-// lightbox
-const lb = document.getElementById("lb");
-document.querySelectorAll(".shot").forEach(f => f.addEventListener("click", () => {
-  lb.querySelector("img").src = f.dataset.full;
-  lb.querySelector("img").alt = f.querySelector("img").alt;
-  lb.classList.add("on");
-}));
-lb.addEventListener("click", () => lb.classList.remove("on"));
+  // scroll mode (phones, small screens): reveal on scroll
+  const io = new IntersectionObserver(es => es.forEach(en => { if (en.isIntersecting) activate(en.target); }), { rootMargin: "0px 0px -15% 0px" });
+  addEventListener("scroll", () => { if (!deck) { setUI(visibleIndex()); if (scrollY > 60) hint.classList.add("hide"); } }, { passive: true });
+
+  function setMode() {
+    deck = deckMQ.matches;
+    document.body.classList.toggle("deck", deck);
+    if (deck) {
+      io.disconnect();
+      slides.forEach((s, k) => k !== current && s.classList.remove("active"));
+      activate(slides[current]);
+      setUI(current);
+    } else {
+      slides.forEach(s => io.observe(s));
+    }
+    fitAll();
+  }
+  deckMQ.addEventListener("change", setMode);
+  addEventListener("resize", fitAll);
+  if (document.fonts) document.fonts.ready.then(fitAll);
+  addEventListener("load", fitAll);
+
+  const start = slides.findIndex(s => "#" + s.id === location.hash);
+  current = start > 0 ? start : 0;
+  setMode();
+  if (!deck && start > 0) go(start, true);
+  setTimeout(() => hint.classList.add("hide"), 6000);
+
+  // lightbox for dashboard screenshots
+  document.querySelectorAll(".shot").forEach(f => f.addEventListener("click", () => {
+    const img = lb.querySelector("img");
+    img.src = f.dataset.full;
+    img.alt = f.querySelector("img").alt;
+    lb.classList.add("on");
+  }));
+  lb.addEventListener("click", () => lb.classList.remove("on"));
+})();
 </script>
 </body>
 </html>
