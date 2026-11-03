@@ -245,7 +245,6 @@ em{font-style:italic;color:var(--acc)}
   <symbol id="i-loop" viewBox="0 0 24 24"><path d="M4 12a8 8 0 0 1 14-5.3L20 9"/><path d="M20 4v5h-5"/><path d="M20 12a8 8 0 0 1-14 5.3L4 15"/><path d="M4 20v-5h5"/></symbol>
   <symbol id="i-phone" viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></symbol>
   <symbol id="i-users" viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20c0-3.6 2.9-6.5 6.5-6.5s6.5 2.9 6.5 6.5"/><path d="M16 4.5a3.5 3.5 0 0 1 0 7M18 13.7c2 .9 3.5 3.1 3.5 6.3"/></symbol>
-  <symbol id="i-drone" viewBox="0 0 24 24"><circle cx="5" cy="5" r="2.5"/><circle cx="19" cy="5" r="2.5"/><circle cx="5" cy="19" r="2.5"/><circle cx="19" cy="19" r="2.5"/><rect x="9" y="9" width="6" height="6" rx="1.5"/><path d="M7 7l2 2M17 7l-2 2M7 17l2-2M17 17l-2-2"/></symbol>
   <symbol id="i-road" viewBox="0 0 24 24"><path d="M8 3L4 21M16 3l4 18M12 4v3M12 10v3M12 16v3"/></symbol>
   <symbol id="i-build" viewBox="0 0 24 24"><path d="M3 21h18M5 21V8l7-4 7 4v13"/><path d="M9 21v-5h6v5M9 11h.01M15 11h.01"/></symbol>
   <symbol id="i-cap" viewBox="0 0 24 24"><path d="M2 9l10-5 10 5-10 5z"/><path d="M6 11v5c3 2 9 2 12 0v-5M22 9v6"/></symbol>
@@ -379,8 +378,8 @@ em{font-style:italic;color:var(--acc)}
       <div class="kicker r">What we take care of</div>
       <h2 class="r" style="--d:1">One team. <em>Everything digital.</em></h2>
       <p class="lede r" style="--d:2">Strategy to site visit — no juggling multiple vendors.</p>
-      <div class="chips r" style="--d:3"><span>Website</span><span>Social Media</span><span>Content &amp; Reels</span><span>Photo &amp; Video</span><span>Drone</span><span>Meta Ads</span><span>Google Ads</span><span>SEO</span><span>YouTube</span><span>Influencers</span><span>Lead Reporting</span></div>
-      <div class="promise r" style="--d:4"><svg class="i"><use href="#i-cam"/></svg><span>Crew, cameras, drones and editing — all from our side.</span></div>
+      <div class="chips r" style="--d:3"><span>Website</span><span>Social Media</span><span>Content &amp; Reels</span><span>Photo &amp; Video</span><span>Meta Ads</span><span>Google Ads</span><span>SEO</span><span>YouTube</span><span>Influencers</span><span>Lead Reporting</span></div>
+      <div class="promise r" style="--d:4"><svg class="i"><use href="#i-cam"/></svg><span>Crew, cameras and editing — all from our side.</span></div>
       <p class="fine r" style="--d:5">Influencer fees billed separately.</p>
     </div>
   </div></div>
@@ -486,7 +485,7 @@ em{font-style:italic;color:var(--acc)}
   const dots = [...dotsEl.children];
 
   // ecosystem nodes around the hub
-  const nodes = [["i-web","Website"],["i-social","Social"],["i-pen","Content"],["i-cam","Shoots"],["i-drone","Drone"],["i-target","Meta Ads"],["i-search","Google Ads"],["i-trend","SEO"],["i-play","YouTube"],["i-star","Influencers"],["i-doc","Reports"]];
+  const nodes = [["i-web","Website"],["i-social","Social"],["i-pen","Content"],["i-cam","Shoots"],["i-target","Meta Ads"],["i-search","Google Ads"],["i-trend","SEO"],["i-play","YouTube"],["i-star","Influencers"],["i-doc","Reports"]];
   const orbit = document.getElementById("orbit");
   nodes.forEach(([ic, label], i) => {
     const a = (i / nodes.length) * Math.PI * 2 - Math.PI / 2;
